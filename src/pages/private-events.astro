@@ -14,12 +14,12 @@ import { site, fullAddress } from '../lib/site';
   </PageHero>
 
   <section class="py-16 md:py-24">
-    <div class="container-x">
+    <div data-reveal-group class="container-x">
       <p class="eyebrow mb-3">Perfect for</p>
-      <ul class="flex flex-wrap gap-3">
+      <ul data-reveal-group class="flex flex-wrap gap-3">
         {site.privateEventTypes.map((t) => <li class="rounded-full border border-honey/50 px-5 py-2.5 font-display text-2xl text-peach">{t}</li>)}
       </ul>
-      <div class="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+      <div data-reveal-group class="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
         <Img src="photos/taproom-aerial.jpg" alt="The bar and seating seen from above" sizes="(min-width:768px) 50vw, 100vw" class="aspect-[16/10] h-full w-full rounded-[3px] object-cover" pictureClass="col-span-2 block" />
         <Img src="photos/taproom-hall.jpg" alt="Long tables and games in the taproom" sizes="(min-width:768px) 25vw, 50vw" class="aspect-[4/5] h-full w-full rounded-[3px] object-cover md:aspect-auto" pictureClass="block" />
         <Img src="photos/stage.jpg" alt="Stage with speakers and a large screen" sizes="(min-width:768px) 25vw, 50vw" class="aspect-[4/5] h-full w-full rounded-[3px] object-cover md:aspect-auto" pictureClass="block" />
@@ -28,7 +28,7 @@ import { site, fullAddress } from '../lib/site';
   </section>
 
   <section id="book" class="border-t border-ink-3 bg-ink-2 py-16 md:py-24" aria-labelledby="bk">
-    <div class="container-x grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+    <div data-reveal-group class="container-x grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
       <div>
         <h2 id="bk" class="text-5xl">Contact us to book your event today</h2>
         <div class="mt-8 grid gap-1 text-lg">

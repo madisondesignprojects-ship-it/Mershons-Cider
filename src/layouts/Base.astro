@@ -26,6 +26,13 @@ const { title, description, path, current, og, noindex } = Astro.props;
     <link rel="preload" href={lobster700} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={sans} as="font" type="font/woff2" crossorigin />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <script is:inline>
+      // Enable reveal styles only when JS runs; failsafe shows everything if the module never boots.
+      document.documentElement.classList.add('js');
+      setTimeout(function () { if (!window.__revealReady) document.documentElement.classList.add('reveal-off'); }, 3500);
+      // Record whether this page arrived via a cross-document view transition (used by QA).
+      window.addEventListener('pagereveal', function (e) { window.__vt = !!e.viewTransition; });
+    </script>
     <SEO title={title} description={description} path={path} og={og} noindex={noindex} />
     <Schema />
   </head>
@@ -35,6 +42,6 @@ const { title, description, path, current, og, noindex } = Astro.props;
     <main id="main" tabindex="-1" class="focus:outline-none"><slot /></main>
     <Footer />
     <StickyBar />
-    <script>import '../scripts/site.ts';</script>
+    <script>import '../scripts/site.ts'; import '../scripts/reveal.ts'; (window as any).__revealReady = true;</script>
   </body>
 </html>

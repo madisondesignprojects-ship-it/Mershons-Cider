@@ -1,0 +1,15 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch({executablePath:'/usr/bin/google-chrome'});
+const p = await b.newPage({viewport:{width:390,height:844}});
+const errs=[]; p.on('pageerror',e=>errs.push(e.message)); p.on('console',m=>m.type()==='error'&&errs.push(m.text()));
+await p.goto('http://127.0.0.1:4420/');
+await p.click('a[href$="/order-cider/"] >> nth=0', {force:true}).catch(async()=>{await p.goto('http://127.0.0.1:4420/order-cider/')});
+await p.waitForLoadState('networkidle');
+const vt = await p.evaluate(()=>({url:location.pathname, vt: window.__vt ?? null, reveals: document.querySelectorAll('.is-in').length, badge: document.querySelector('[data-open-badge]')?.textContent?.trim()?.slice(0,40)}));
+await p.goto('http://127.0.0.1:4420/where-to-find/'); await p.waitForTimeout(500);
+await p.evaluate(()=>window.scrollTo(0,1500)); await p.waitForTimeout(800);
+const r2 = await p.evaluate(()=>({reveals: document.querySelectorAll('.is-in').length, hidden:[...document.querySelectorAll('[data-reveal-group] > *')].filter(e=>getComputedStyle(e).opacity==='0' && e.getBoundingClientRect().top < innerHeight).length}));
+const rm = await b.newPage({reducedMotion:'reduce'}); await rm.goto('http://127.0.0.1:4420/');
+const r3 = await rm.evaluate(()=>({anims: document.getAnimations().filter(a=>a.playState==='running').length, hidden:[...document.querySelectorAll('[data-reveal-group] > *')].filter(e=>getComputedStyle(e).opacity==='0').length}));
+console.log(JSON.stringify({vt,r2,r3,errs}));
+await b.close();

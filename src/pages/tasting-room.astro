@@ -27,18 +27,18 @@ const gallery = [
   </PageHero>
 
   <section class="py-16 md:py-24">
-    <div class="container-x grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+    <div data-reveal-group class="container-x grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
       <div>
         <p class="eyebrow mb-3">What's pouring</p>
         <h2 class="text-5xl">At the bar</h2>
-        <ul class="mt-8 grid gap-4 sm:grid-cols-2">
+        <ul data-reveal-group class="mt-8 grid gap-4 sm:grid-cols-2">
           {[
             { t: 'Draft Cider', d: 'Mershon\'s signature ciders, poured fresh from the tap.' },
             { t: 'Tasting Flights', d: 'Can\'t decide? Sample the lineup side by side.' },
             { t: 'House Cocktails', d: 'Mixed in-house at the bar.' },
             { t: 'Beer', d: 'For the friend who isn\'t a cider drinker (yet).' },
           ].map((x) => (
-            <li class="card p-6"><h3 class="text-[1.7rem]">{x.t}</h3><p class="mt-1 text-muted">{x.d}</p></li>
+            <li class="card card-lift p-6"><h3 class="text-[1.7rem]">{x.t}</h3><p class="mt-1 text-muted">{x.d}</p></li>
           ))}
         </ul>
         <div class="card mt-4 flex items-center gap-5 p-6">
@@ -61,10 +61,10 @@ const gallery = [
   </section>
 
   <section class="pb-20 md:pb-28" aria-labelledby="inside">
-    <div class="container-x">
+    <div data-reveal-group class="container-x">
       <p class="eyebrow mb-3">Inside the cidery</p>
       <h2 id="inside" class="text-5xl">Take a look around</h2>
-      <ul class="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+      <ul data-reveal-group class="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
         {gallery.map((g, i) => (
           <li class={`overflow-hidden rounded-[3px] ${i === 0 ? 'col-span-2 row-span-2 md:col-span-2' : ''}`}>
             <Img src={g.src} alt={g.alt} sizes={i === 0 ? '(min-width:768px) 66vw, 100vw' : '(min-width:768px) 33vw, 50vw'} class="h-full min-h-[160px] w-full object-cover transition-transform duration-700 hover:scale-[1.03]" pictureClass="block h-full" />
@@ -75,7 +75,7 @@ const gallery = [
   </section>
 
   <section class="border-t border-ink-3 bg-ink-2 py-16 md:py-20" aria-labelledby="find">
-    <div class="container-x grid items-center gap-10 lg:grid-cols-2">
+    <div data-reveal-group class="container-x grid items-center gap-10 lg:grid-cols-2">
       <div>
         <h2 id="find" class="text-5xl">Find us on Main Street</h2>
         <p class="mt-4 text-lg">{site.street}, {site.city}, {site.state} {site.zip}</p>

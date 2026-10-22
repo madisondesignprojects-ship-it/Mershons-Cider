@@ -4,14 +4,14 @@ interface Props { eyebrow?: string; title: string; lead?: string; image: string;
 const { eyebrow, title, lead, image, alt, position = 'center' } = Astro.props;
 ---
 <section class="grain relative isolate overflow-hidden border-b border-ink-3">
-  <div class="absolute inset-0 -z-10">
+  <div class="hero-media absolute inset-0 -z-10">
     <Img src={image} alt={alt} eager sizes="100vw" class="h-full w-full object-cover" pictureClass="block h-full w-full" style={`object-position:${position}`} />
     <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/15"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/25 to-transparent"></div>
   </div>
-  <div class="container-x flex min-h-[340px] flex-col justify-end pb-12 pt-24 md:min-h-[440px] md:pb-16">
+  <div class="hero-in container-x flex min-h-[340px] flex-col justify-end pb-12 pt-24 md:min-h-[440px] md:pb-16">
     {eyebrow && <p class="eyebrow mb-3">{eyebrow}</p>}
-    <h1 class="max-w-3xl text-[2.9rem] sm:text-6xl md:text-7xl">{title}</h1>
+    <h1 class="hero-title max-w-3xl text-[2.9rem] sm:text-6xl md:text-7xl">{title}</h1>
     {lead && <p class="mt-5 max-w-2xl text-lg text-parchment/90 md:text-xl">{lead}</p>}
     <slot />
   </div>

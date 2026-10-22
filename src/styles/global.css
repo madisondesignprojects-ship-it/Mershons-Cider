@@ -56,3 +56,98 @@
 }
 
 @layer base { [aria-invalid='true'] { border-color: var(--color-ember) !important; box-shadow: 0 0 0 1px var(--color-ember); } }
+
+/* ============================================================
+   Motion system: page transitions, reveals, hero, micro-interactions.
+   Everything below is progressive enhancement and is switched off
+   under prefers-reduced-motion.
+   ============================================================ */
+:root { --ease-out: cubic-bezier(.22, 1, .36, 1); --ease-io: cubic-bezier(.65, 0, .35, 1); }
+
+/* --- Cross-document View Transitions (MPA, no client router) --- */
+@view-transition { navigation: auto; }
+.vt-header { view-transition-name: site-header; }
+.vt-bar { view-transition-name: site-bar; }
+.vt-quickbar { view-transition-name: quickbar; }
+.hero-media { view-transition-name: hero-media; }
+.hero-title { view-transition-name: hero-title; }
+::view-transition-group(*) { animation-duration: .55s; animation-timing-function: var(--ease-out); }
+::view-transition-old(root) { animation: vt-out .32s var(--ease-io) both; }
+::view-transition-new(root) { animation: vt-in .5s var(--ease-out) .08s both; }
+::view-transition-old(hero-media) { animation: vt-fade-out .45s var(--ease-io) both; }
+::view-transition-new(hero-media) { animation: vt-fade-in .6s var(--ease-out) both; }
+::view-transition-old(hero-media), ::view-transition-new(hero-media) { height: 100%; object-fit: cover; }
+::view-transition-old(hero-title) { animation: vt-fade-out .25s ease both; }
+::view-transition-new(hero-title) { animation: vt-title-in .6s var(--ease-out) .1s both; }
+::view-transition-old(site-header), ::view-transition-new(site-header),
+::view-transition-old(site-bar), ::view-transition-new(site-bar),
+::view-transition-old(quickbar), ::view-transition-new(quickbar) { animation: none; mix-blend-mode: normal; }
+@keyframes vt-out { to { opacity: 0; transform: translateY(-8px); filter: blur(2px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(14px); } }
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-fade-in { from { opacity: 0; } }
+@keyframes vt-title-in { from { opacity: 0; transform: translateY(18px); } }
+
+/* --- Hero: content load-in, slow photo settle, scroll parallax --- */
+@keyframes hero-rise { from { opacity: 0; transform: translateY(22px); } }
+@keyframes hero-settle { from { transform: scale(1.08); } to { transform: scale(1); } }
+.hero-in > * { animation: hero-rise .9s var(--ease-out) both; }
+.hero-in > :nth-child(1) { animation-delay: .05s; }
+.hero-in > :nth-child(2) { animation-delay: .15s; }
+.hero-in > :nth-child(3) { animation-delay: .27s; }
+.hero-in > :nth-child(4) { animation-delay: .39s; }
+.hero-in > :nth-child(5) { animation-delay: .5s; }
+/* The photo is visible from the first frame (no opacity change), it just eases from 108% to 100%. */
+.hero-media picture { overflow: hidden; }
+.hero-media img { animation: hero-settle 2.6s var(--ease-out) both; transform-origin: 60% 50%; will-change: transform; }
+@supports (animation-timeline: scroll()) {
+  .hero-media { animation: hero-parallax linear both; animation-timeline: scroll(root); animation-range: 0 100vh; }
+  @keyframes hero-parallax { to { transform: translateY(14%); } }
+}
+
+/* --- Scroll reveal (only hides when JS has booted: html.js) --- */
+html.js [data-reveal-group] > *:not(.is-in) { opacity: 0; transform: translateY(24px); }
+html.js [data-reveal-group] > * { transition: opacity .8s var(--ease-out), transform .8s var(--ease-out); transition-delay: calc(var(--i, 0) * 80ms); }
+html.js [data-reveal-group] > .is-in { transition-delay: calc(var(--i, 0) * 80ms); }
+html.reveal-off [data-reveal-group] > * { opacity: 1 !important; transform: none !important; }
+
+/* Sword divider draws in; quote band settles from soft focus */
+.orn-draw::before, .orn-draw::after { transform-origin: center; transition: transform 1.1s var(--ease-out) .15s; }
+.orn-draw svg { transition: opacity .8s ease .35s, transform 1s var(--ease-out) .35s; }
+html.js [data-reveal-group] > :not(.is-in) .orn-draw::before, html.js [data-reveal-group] > :not(.is-in) .orn-draw::after,
+html.js [data-reveal-group] > .orn-draw:not(.is-in)::before, html.js [data-reveal-group] > .orn-draw:not(.is-in)::after { transform: scaleX(0); }
+html.js [data-reveal-group] > :not(.is-in) .orn-draw svg, html.js [data-reveal-group] > .orn-draw:not(.is-in) svg { opacity: 0; transform: translateX(-16px); }
+html.js [data-reveal-group] > .quote-reveal { transition: opacity .9s var(--ease-out), transform .9s var(--ease-out), filter 1.3s var(--ease-out) .15s; }
+html.js [data-reveal-group] > .quote-reveal:not(.is-in) { filter: blur(6px); }
+
+/* --- Micro-interactions --- */
+.btn { position: relative; overflow: hidden; isolation: isolate; transition: background-color .25s, color .25s, border-color .25s, box-shadow .35s var(--ease-out), transform .35s var(--ease-out); }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); transition-duration: .08s; }
+.btn-gold::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(105deg, transparent 35%, rgb(255 246 214 / .55) 50%, transparent 65%); transform: translateX(-120%); transition: transform .8s var(--ease-out); }
+.btn-gold:hover::after, .btn-gold:focus-visible::after { transform: translateX(120%); }
+.btn-gold:hover { box-shadow: inset 0 0 0 1px rgb(255 255 255 / .2), 0 14px 34px -12px rgb(229 189 76 / .75); }
+.btn-line:hover, .btn-line:focus-visible { box-shadow: 0 0 0 1px rgb(229 189 76 / .35), 0 10px 30px -14px rgb(219 170 58 / .6); }
+.btn svg { transition: transform .35s var(--ease-out); }
+.btn:hover svg:last-child { transform: translateX(3px); }
+
+.card-lift { transition: transform .45s var(--ease-out), box-shadow .45s var(--ease-out), border-color .3s; }
+.card-lift:hover, .card-lift:focus-within { transform: translateY(-5px); border-color: rgb(212 156 37 / .55); box-shadow: 0 24px 48px -26px rgb(0 0 0 / .9), 0 0 0 1px rgb(212 156 37 / .18), 0 18px 50px -30px rgb(229 189 76 / .55); }
+html.js [data-reveal-group] > .card-lift.is-in { transition: opacity .8s var(--ease-out), transform .45s var(--ease-out), box-shadow .45s var(--ease-out), border-color .3s; transition-delay: calc(var(--i, 0) * 80ms); }
+.link-lift span:first-child { transition: border-color .3s, background-color .3s, color .3s, transform .45s var(--ease-out); }
+.link-lift:hover span:first-child { background: var(--color-gold); color: var(--color-ink); border-color: var(--color-gold); transform: rotate(-8deg) scale(1.05); }
+
+.nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 6px; height: 2px; background: linear-gradient(90deg, var(--color-honey), var(--color-amber)); transform: scaleX(0); transform-origin: center; transition: transform .4s var(--ease-out); }
+.nav-link:hover::after, .nav-link:focus-visible::after, .nav-link.is-current::after { transform: scaleX(1); }
+
+/* --- Reduced motion: keep everything static and instantly visible --- */
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; scroll-behavior: auto !important; }
+  .hero-media, .hero-media img { animation: none !important; transform: none !important; }
+  html.js [data-reveal-group] > * { opacity: 1 !important; transform: none !important; }
+  html.js .orn-draw::before, html.js .orn-draw::after, html.js .orn-draw svg { transform: none !important; opacity: 1 !important; }
+  .quote-reveal { filter: none !important; }
+  .btn:hover, .card-lift:hover, .card-lift:focus-within { transform: none; }
+  .btn-gold::after { display: none; }
+}

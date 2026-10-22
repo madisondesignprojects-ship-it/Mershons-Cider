@@ -15,7 +15,7 @@ const maps = (r: { name: string; address: string }) => `https://www.google.com/m
     lead={`On draft and on shelves at ${retailers.length} spots across Wisconsin. Search by town or venue below.`} />
 
   <section class="py-14 md:py-20" data-finder>
-    <div class="container-x">
+    <div data-reveal-group class="container-x">
       <div class="card sticky top-[84px] z-20 grid gap-4 p-4 md:grid-cols-[1fr_auto] md:items-center md:p-5">
         <label class="relative block">
           <span class="sr-only">Search by town or venue</span>
@@ -30,7 +30,7 @@ const maps = (r: { name: string; address: string }) => `https://www.google.com/m
         </div>
       </div>
 
-      <div class="mt-10 columns-1 gap-8 md:columns-2 lg:columns-3">
+      <div data-reveal-group class="mt-10 columns-1 gap-8 md:columns-2 lg:columns-3">
         {cities.map((c) => (
           <section data-city-group class="mb-8 break-inside-avoid">
             <h2 class="border-b border-ink-3 pb-2 text-3xl">{c}</h2>
@@ -56,7 +56,7 @@ const maps = (r: { name: string; address: string }) => `https://www.google.com/m
   </section>
 
   <section class="border-t border-ink-3 bg-ink-2 py-14">
-    <div class="container-x flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+    <div data-reveal-group class="container-x flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
       <div><h2 class="text-4xl">Not near a store?</h2><p class="mt-2 text-muted">Order online and we'll ship it to your door, or come see us in Stoughton.</p></div>
       <div class="flex flex-wrap gap-3"><a href={u('/order-cider/')} class="btn btn-gold">Order cider</a><a href={u('/tasting-room/')} class="btn btn-line">Visit the tasting room</a></div>
     </div>

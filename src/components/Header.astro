@@ -7,7 +7,7 @@ import { site, u } from '../lib/site';
 interface Props { current: string }
 const { current } = Astro.props;
 ---
-<div class="gold-texture relative z-50 text-[.8rem] font-slab font-semibold tracking-wide">
+<div class="vt-bar gold-texture relative z-50 text-[.8rem] font-slab font-semibold tracking-wide">
   <div class="container-x flex h-9 items-center justify-between gap-4">
     <OpenBadge tone="light" class="text-ink" />
     <p class="hidden sm:block"><a href={site.directions} target="_blank" rel="noopener" class="text-ink no-underline hover:underline">{site.street}, {site.city}, {site.state}<span class="sr-only"> (directions, opens in new tab)</span></a></p>
@@ -17,14 +17,14 @@ const { current } = Astro.props;
     </p>
   </div>
 </div>
-<header class="sticky top-0 z-40 border-b border-ink-3 bg-ink/92 backdrop-blur-md">
+<header class="vt-header sticky top-0 z-40 border-b border-ink-3 bg-ink/92 backdrop-blur-md">
   <div class="container-x flex h-[72px] items-center justify-between gap-6">
     <Logo width={136} />
     <nav aria-label="Main" class="hidden xl:block">
       <ul class="flex items-center gap-7">
         {NAV.map((n) => (
           <li><a href={u(n.href)} aria-current={current === n.key ? 'page' : undefined}
-            class={`relative inline-flex min-h-[44px] items-center font-display text-[1.12rem] font-bold no-underline transition-colors hover:text-gold-hi ${current === n.key ? 'text-gold-hi after:absolute after:inset-x-0 after:bottom-1.5 after:h-0.5 after:bg-amber' : 'text-parchment'}`}>{n.label}</a></li>
+            class={`nav-link relative inline-flex min-h-[44px] items-center font-display text-[1.12rem] font-bold no-underline transition-colors hover:text-gold-hi ${current === n.key ? 'is-current text-gold-hi' : 'text-parchment'}`}>{n.label}</a></li>
         ))}
       </ul>
     </nav>

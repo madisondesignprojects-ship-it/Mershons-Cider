@@ -17,13 +17,13 @@ const stateNames: Record<string, string> = { AK: 'Alaska', AL: 'Alabama', AZ: 'A
   </PageHero>
 
   <section class="py-16 md:py-24" aria-labelledby="products">
-    <div class="container-x">
+    <div data-reveal-group class="container-x">
       <p class="eyebrow mb-3">Product list</p>
       <h2 id="products" class="text-5xl">Pick your bottles</h2>
-      <ul class="mt-10 grid gap-6 md:grid-cols-2">
+      <ul data-reveal-group class="mt-10 grid gap-6 md:grid-cols-2">
         {products.map((p) => (
-          <li class="card grid overflow-hidden sm:grid-cols-[minmax(0,220px)_1fr]">
-            <div class="bg-[#f4efe7]"><Img src={`labels/${p.slug}.jpg`} alt={`${p.fullName} label artwork`} widths={[360, 560, 750]} sizes="(min-width:640px) 220px, 100vw" class="aspect-[5/4] h-full w-full object-cover sm:aspect-auto" pictureClass="block h-full" /></div>
+          <li class="card card-lift group grid overflow-hidden sm:grid-cols-[minmax(0,220px)_1fr]">
+            <div class="bg-[#f4efe7]"><Img src={`labels/${p.slug}.jpg`} alt={`${p.fullName} label artwork`} widths={[360, 560, 750]} sizes="(min-width:640px) 220px, 100vw" class="aspect-[5/4] h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04] sm:aspect-auto" pictureClass="block h-full" /></div>
             <div class="flex flex-col p-6">
               <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 class="text-[2rem]">{p.name}</h3>
@@ -42,11 +42,11 @@ const stateNames: Record<string, string> = { AK: 'Alaska', AL: 'Alabama', AZ: 'A
   </section>
 
   <section class="border-y border-ink-3 bg-ink-2 py-16 md:py-20" aria-labelledby="ship">
-    <div class="container-x grid gap-10 lg:grid-cols-[1fr_1.6fr]">
+    <div data-reveal-group class="container-x grid gap-10 lg:grid-cols-[1fr_1.6fr]">
       <div>
         <p class="eyebrow mb-3">Available in</p>
         <h2 id="ship" class="text-5xl">Where we ship</h2>
-        <ul class="mt-6 grid gap-3">
+        <ul data-reveal-group class="mt-6 grid gap-3">
           <li class="flex items-center gap-3"><Icon name="store" size={20} class="text-gold-hi" />On-site pick up available</li>
           <li class="flex items-center gap-3"><Icon name="truck" size={20} class="text-gold-hi" />Local delivery available</li>
         </ul>
@@ -58,7 +58,7 @@ const stateNames: Record<string, string> = { AK: 'Alaska', AL: 'Alabama', AZ: 'A
   </section>
 
   <section id="kegs" class="py-16 md:py-24" aria-labelledby="keg">
-    <div class="container-x grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+    <div data-reveal-group class="container-x grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
       <div class="photo-frame"><Img src="photos/barrel.jpg" alt="A barrel in the Mershon's cidery" sizes="(min-width:1024px) 45vw, 100vw" class="aspect-[4/3] w-full rounded-[3px] object-cover" /></div>
       <div>
         <p class="eyebrow mb-3">For gatherings</p>

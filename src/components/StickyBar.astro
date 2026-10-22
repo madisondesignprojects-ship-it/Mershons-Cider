@@ -2,7 +2,7 @@
 import Icon from './Icon.astro';
 import { site, u } from '../lib/site';
 ---
-<nav aria-label="Quick actions" class="sticky-bar fixed inset-x-0 bottom-0 z-30 grid grid-cols-3 border-t border-ink-3 bg-ink/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md md:hidden">
+<nav aria-label="Quick actions" class="vt-quickbar sticky-bar fixed inset-x-0 bottom-0 z-30 grid grid-cols-3 border-t border-ink-3 bg-ink/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md md:hidden">
   <a href={`tel:${site.tel}`} class="flex min-h-[60px] flex-col items-center justify-center gap-1 text-[.72rem] font-slab font-semibold uppercase tracking-wider text-peach no-underline"><Icon name="phone" size={19} />Call</a>
   <a href={site.directions} target="_blank" rel="noopener" class="flex min-h-[60px] flex-col items-center justify-center gap-1 border-x border-ink-3 text-[.72rem] font-slab font-semibold uppercase tracking-wider text-peach no-underline"><Icon name="nav" size={19} />Directions<span class="sr-only"> (opens in new tab)</span></a>
   <a href={u('/order-cider/')} class="flex min-h-[60px] flex-col items-center justify-center gap-1 bg-gold text-[.72rem] font-slab font-semibold uppercase tracking-wider text-ink no-underline hover:text-ink"><Icon name="truck" size={19} />Order</a>
