@@ -1,0 +1,16 @@
+---
+import Icon from './Icon.astro';
+import { site, fullAddress } from '../lib/site';
+interface Props { class?: string }
+const { class: cls = '' } = Astro.props;
+---
+<div class={`relative aspect-[4/3] overflow-hidden rounded-[3px] border border-ink-3 bg-ink-2 ${cls}`} data-map data-src={site.mapEmbed} data-title={`Map: ${site.name}, ${fullAddress}`}>
+  <div data-map-card class="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center" style="background:radial-gradient(circle at 50% 40%, rgba(219,124,0,.18), transparent 60%), repeating-linear-gradient(0deg, rgba(229,189,76,.06) 0 1px, transparent 1px 48px), repeating-linear-gradient(90deg, rgba(229,189,76,.06) 0 1px, transparent 1px 48px)">
+    <span class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-gold text-ink"><Icon name="pin" size={26} /></span>
+    <p class="font-display text-2xl text-peach">{site.street}<br /><span class="text-lg">{site.city}, {site.state} {site.zip}</span></p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <button type="button" data-map-load class="btn btn-line btn-sm">Show map</button>
+      <a href={site.directions} target="_blank" rel="noopener" class="btn btn-gold btn-sm"><Icon name="nav" size={16} />Directions<span class="sr-only"> (opens in new tab)</span></a>
+    </div>
+  </div>
+</div>

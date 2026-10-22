@@ -1,0 +1,8 @@
+---
+// Sword-and-rule divider, nodding to the sword in the Mershon's logo.
+interface Props { class?: string }
+const { class: cls = '' } = Astro.props;
+---
+<div class={`rule-orn ${cls}`} aria-hidden="true">
+  <svg width="74" height="14" viewBox="0 0 74 14" fill="none"><path d="M2 7h50" stroke="currentColor" stroke-width="1.5"/><path d="M52 3.5 70 7l-18 3.5z" fill="currentColor" opacity=".85"/><path d="M14 2v10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="4" cy="7" r="2.6" fill="currentColor"/></svg>
+</div>

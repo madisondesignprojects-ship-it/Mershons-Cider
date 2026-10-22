@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Img from '../components/Img.astro';
+import Icon from '../components/Icon.astro';
+import { site, events, fmtTime, u } from '../lib/site';
+const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago' }).format(new Date());
+const upcoming = events.dated.filter((e) => e.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+const past = events.dated.filter((e) => e.date < today).sort((a, b) => b.date.localeCompare(a.date)).slice(0, 6);
+const d = (iso: string) => new Date(iso + 'T12:00:00');
+const mon = (iso: string) => d(iso).toLocaleDateString('en-US', { month: 'short' });
+const day = (iso: string) => d(iso).getDate();
+const full = (iso: string) => d(iso).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+---
+<Base title="Events at Mershon's | Mershon's Cidery, Stoughton WI" current="events" path="/events/"
+  description="Events at Mershon's Cidery in Stoughton: the Stoughton Sea Shanty Society community sing every fourth Sunday, plus local happenings. Follow us on Facebook for the latest.">
+  <PageHero eyebrow="What's happening" title="Events at Mershon's" image="photos/crowd-night.jpg" alt="A lively crowd in the taproom at night" position="50% 45%" />
+
+  <section class="py-16 md:py-20" aria-labelledby="up">
+    <div class="container-x">
+      <h2 id="up" class="text-5xl">Upcoming</h2>
+      {upcoming.length ? (
+        <ul class="mt-8 grid gap-4">
+          {upcoming.map((e) => (
+            <li class="card flex gap-6 p-6">
+              <div class="w-16 shrink-0 text-center"><p class="font-slab text-sm font-semibold uppercase text-honey">{mon(e.date)}</p><p class="font-display text-5xl leading-none text-peach">{day(e.date)}</p></div>
+              <div><h3 class="text-3xl">{e.title}</h3><p class="mt-1 text-muted">{full(e.date)} · {fmtTime(e.start)} – {fmtTime(e.end)} · {e.venue}, {e.address}</p><p class="mt-2">{e.desc}</p></div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div class="card mt-8 flex flex-col items-start gap-5 p-8 md:flex-row md:items-center md:justify-between">
+          <p class="max-w-xl text-lg">No dated events are on the calendar right now. Follow us on Facebook for the latest announcements.</p>
+          <a href={site.facebook} target="_blank" rel="noopener" class="btn btn-gold"><Icon name="facebook" size={17} />Follow on Facebook<span class="sr-only"> (opens in new tab)</span></a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="border-y border-ink-3 bg-ink-2 py-16 md:py-24" aria-labelledby="rec">
+    <div class="container-x">
+      <p class="eyebrow mb-3">Recurring</p>
+      <h2 id="rec" class="sr-only">Recurring events</h2>
+      {events.recurring.map((r) => (
+        <article class="grid items-center gap-10 lg:grid-cols-[360px_1fr] lg:gap-16">
+          <Img src={r.image} alt="Stoughton Sea Shanty Society emblem: a Viking ship in a circle" widths={[360, 720]} sizes="(min-width:1024px) 360px, 100vw" class="mx-auto aspect-square w-full max-w-[360px] rounded-[3px] bg-white object-contain p-6" />
+          <div>
+            <p class="flex items-center gap-2 font-slab text-sm font-semibold uppercase tracking-[.16em] text-honey"><Icon name="music" size={16} />{r.when} · {r.where}</p>
+            <h3 class="mt-3 text-5xl md:text-6xl">{r.title}</h3>
+            <p class="mt-5 max-w-2xl text-lg">{r.desc}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  {past.length > 0 && (
+    <section class="py-16 md:py-20" aria-labelledby="past">
+      <div class="container-x">
+        <h2 id="past" class="text-4xl">Latest past events</h2>
+        <ul class="mt-6 divide-y divide-ink-3 border-y border-ink-3">
+          {past.map((e) => (
+            <li class="grid gap-2 py-5 sm:grid-cols-[150px_1fr] sm:gap-6">
+              <p class="font-slab font-semibold text-honey">{d(e.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
+              <div><h3 class="text-2xl text-parchment">{e.title}</h3><p class="text-muted">{fmtTime(e.start)} – {fmtTime(e.end)} · {e.venue}, {e.address}</p></div>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-8 text-muted">Hosting something of your own? <a href={u('/private-events/')}>Rent the taproom for a private event.</a></p>
+      </div>
+    </section>
+  )}
+</Base>

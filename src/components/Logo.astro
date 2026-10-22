@@ -1,0 +1,12 @@
+---
+import { Picture } from 'astro:assets';
+import { img } from '../lib/images';
+import { u } from '../lib/site';
+interface Props { class?: string; width?: number; eager?: boolean }
+const { class: cls = '', width = 150, eager = true } = Astro.props;
+const meta = img('brand/logo-lettering.png');
+---
+<a href={u('/')} class={`inline-flex shrink-0 items-center no-underline ${cls}`} aria-label="Mershon's Cidery home">
+  <Picture src={meta} alt="Mershon's Cidery" formats={['webp']} fallbackFormat="png" widths={[width, width * 2]} sizes={`${width}px`}
+    width={width} height={Math.round(width * meta.height / meta.width)} loading={eager ? 'eager' : 'lazy'} class="block h-auto" style={`width:${width}px`} />
+</a>

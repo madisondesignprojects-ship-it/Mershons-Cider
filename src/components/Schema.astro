@@ -1,0 +1,13 @@
+---
+import { site, abs } from '../lib/site';
+const dayMap: Record<string, string> = { mon: 'Monday', tue: 'Tuesday', wed: 'Wednesday', thu: 'Thursday', fri: 'Friday', sat: 'Saturday', sun: 'Sunday' };
+const data = {
+  '@context': 'https://schema.org', '@type': ['Winery', 'BarOrPub'], name: site.name, legalName: site.legalName,
+  url: abs('/'), telephone: site.phone, email: site.email, image: new URL('/og/default.jpg', import.meta.env.SITE).href,
+  address: { '@type': 'PostalAddress', streetAddress: site.street, addressLocality: site.city, addressRegion: site.state, postalCode: site.zip, addressCountry: 'US' },
+  geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
+  openingHoursSpecification: site.hours.map((h) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: dayMap[h.day], opens: h.open, closes: h.close })),
+  sameAs: [site.facebook, site.twitter],
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(data)} />

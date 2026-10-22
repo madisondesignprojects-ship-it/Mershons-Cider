@@ -1,0 +1,834 @@
+[
+ {
+  "name": "Stoughton Spirits",
+  "address": "965 N Page St, Stoughton, WI 53589",
+  "city": "Stoughton",
+  "type": "packaged",
+  "lat": 42.926596,
+  "lng": -89.221962
+ },
+ {
+  "name": "Best Plaza Liquor",
+  "address": "1056 W Main St, Stoughton, WI 53589",
+  "city": "Stoughton",
+  "type": "packaged",
+  "lat": 42.917569,
+  "lng": -89.233076
+ },
+ {
+  "name": "Steve's Liquor",
+  "address": "3618 University Ave, Madison, WI 53705",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.075645,
+  "lng": -89.44981
+ },
+ {
+  "name": "Steve's Liquor",
+  "address": "6227 McKee Rd, Fitchburg, WI 53719",
+  "city": "Fitchburg",
+  "type": "packaged",
+  "lat": 43.014822,
+  "lng": -89.476529
+ },
+ {
+  "name": "HyVee",
+  "address": "3801 E Washington Ave, Madison, WI 53704",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.117795,
+  "lng": -89.318351
+ },
+ {
+  "name": "HyVee",
+  "address": "675 S Whitney Way, Madison, WI 53711",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.050854,
+  "lng": -89.471288
+ },
+ {
+  "name": "HyVee",
+  "address": "2920 Fitchrona Rd, Fitchburg, WI 53719",
+  "city": "Fitchburg",
+  "type": "packaged",
+  "lat": 43.013242,
+  "lng": -89.479666
+ },
+ {
+  "name": "Woodman's",
+  "address": "725 South Gammon Road, Madison, WI 53719",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.048766,
+  "lng": -89.500538
+ },
+ {
+  "name": "Woodman's",
+  "address": "3817 Milwaukee St, Madison, WI 53714",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.096982,
+  "lng": -89.319116
+ },
+ {
+  "name": "Woodman's",
+  "address": "1099 S Grand Ave, Sun Prairie, WI 53590",
+  "city": "Sun Prairie",
+  "type": "packaged",
+  "lat": 43.164504,
+  "lng": -89.266934
+ },
+ {
+  "name": "Woodman's",
+  "address": "1877 S Madison Rd, Beloit, WI 53511",
+  "city": "Beloit",
+  "type": "packaged",
+  "lat": 42.524143,
+  "lng": -89.071205
+ },
+ {
+  "name": "Woodman's",
+  "address": "7145 120th Ave, Kenosha, WI 53142",
+  "city": "Kenosha",
+  "type": "packaged",
+  "lat": 42.574503,
+  "lng": -87.951591
+ },
+ {
+  "name": "Woodman's",
+  "address": "2400 Duck Creek Pkwy, Green Bay, WI 54303",
+  "city": "Green Bay",
+  "type": "packaged",
+  "lat": 44.543536,
+  "lng": -88.077226
+ },
+ {
+  "name": "Williamson Street Coop",
+  "address": "2817 N Sherman Ave, Madison, WI 53704",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.127639,
+  "lng": -89.362807
+ },
+ {
+  "name": "Fresh Madison Market",
+  "address": "703 University Ave, Madison, WI 53715",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.072925,
+  "lng": -89.397822
+ },
+ {
+  "name": "Festival Foods",
+  "address": "810 E Washington Ave, Madison, WI 53703",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.082421,
+  "lng": -89.37455
+ },
+ {
+  "name": "Festival Foods",
+  "address": "W3195 Van Roy Rd, Appleton, WI 54915",
+  "city": "Appleton",
+  "type": "packaged",
+  "lat": 44.254742,
+  "lng": -88.352479
+ },
+ {
+  "name": "Festival Foods",
+  "address": "1200 W. Northland Ave, Appleton, WI 54915",
+  "city": "Appleton",
+  "type": "packaged",
+  "lat": 44.288866,
+  "lng": -88.423635
+ },
+ {
+  "name": "Festival Foods",
+  "address": "1125 E Johnson St, Fond du Lac, WI 54935",
+  "city": "Fond du Lac",
+  "type": "packaged",
+  "lat": 43.785096,
+  "lng": -88.403905
+ },
+ {
+  "name": "Festival Foods",
+  "address": "328 Washington St, Fort Atkinson, WI 53538",
+  "city": "Fort Atkinson",
+  "type": "packaged",
+  "lat": 42.930929,
+  "lng": -88.83864
+ },
+ {
+  "name": "Festival Foods",
+  "address": "3207 80th St, Kenosha, WI 53142",
+  "city": "Kenosha",
+  "type": "packaged",
+  "lat": 42.556827,
+  "lng": -87.847886
+ },
+ {
+  "name": "Festival Foods",
+  "address": "647 S Green Bay Rd, Neenah, WI 54956",
+  "city": "Neenah",
+  "type": "packaged",
+  "lat": 44.17925,
+  "lng": -88.487281
+ },
+ {
+  "name": "Festival Foods",
+  "address": "2250 West Mason St, Green Bay, WI 54303",
+  "city": "Green Bay",
+  "type": "packaged",
+  "lat": 44.525387,
+  "lng": -88.086507
+ },
+ {
+  "name": "Festival Foods",
+  "address": "30 Copeland Ave, La Crosse, WI 54603",
+  "city": "La Crosse",
+  "type": "packaged",
+  "lat": 43.822151,
+  "lng": -91.248614
+ },
+ {
+  "name": "Festival Foods",
+  "address": "1260 Crossing Meadows Dr, Onalaska WI, 54650",
+  "city": "Onalaska",
+  "type": "packaged",
+  "lat": 43.869681,
+  "lng": -91.211309
+ },
+ {
+  "name": "Discount Liquor",
+  "address": "5031 W Oklahoma Ave, Milwaukee, WI, 53219",
+  "city": "Milwaukee",
+  "type": "packaged",
+  "lat": 42.988104,
+  "lng": -87.977497
+ },
+ {
+  "name": "Ray's Wine and Spirits",
+  "address": "8930 W North Ave, Milwaukee, WI 53226",
+  "city": "Milwaukee",
+  "type": "packaged",
+  "lat": 43.060748,
+  "lng": -88.024402
+ },
+ {
+  "name": "Indulgence Chocolatiers",
+  "address": "211 S 2nd St, Milwaukee, WI 53204",
+  "city": "Milwaukee",
+  "type": "packaged",
+  "lat": 43.029059,
+  "lng": -87.913
+ },
+ {
+  "name": "Glorioso's Italian Market",
+  "address": "1011 E Brady St, Milwaukee, WI 53202",
+  "city": "Milwaukee",
+  "type": "packaged",
+  "lat": 43.052756,
+  "lng": -87.899212
+ },
+ {
+  "name": "Outpost Natural Foods",
+  "address": "100 E. Capitol Drive, Milwaukee, WI 53212",
+  "city": "Milwaukee",
+  "type": "packaged",
+  "lat": 43.089771,
+  "lng": -87.909968
+ },
+ {
+  "name": "Outpost Natural Foods",
+  "address": "7590 W. Mequon Road, Mequon, WI 53092",
+  "city": "Mequon",
+  "type": "packaged",
+  "lat": 43.221778,
+  "lng": -88.003301
+ },
+ {
+  "name": "Outpost Natural Foods",
+  "address": "7000 W. State Street, Wauwatosa, WI 53213",
+  "city": "Wauwatosa",
+  "type": "packaged",
+  "lat": 43.048002,
+  "lng": -87.999728
+ },
+ {
+  "name": "Outpost Natural Foods",
+  "address": "2826 S. Kinnickinnic Avenue, Milwaukee, WI 53207",
+  "city": "Milwaukee",
+  "type": "packaged",
+  "lat": 42.994134,
+  "lng": -87.891881
+ },
+ {
+  "name": "Sendik's",
+  "address": "18985 W Capitol Dr, Brookfield, WI 53045",
+  "city": "Brookfield",
+  "type": "packaged",
+  "lat": 43.088357,
+  "lng": -88.151047
+ },
+ {
+  "name": "Sendik's",
+  "address": "20222 Lower Union St, Brookfield, WI 53045",
+  "city": "Brookfield",
+  "type": "packaged",
+  "lat": 43.035721,
+  "lng": -88.16419
+ },
+ {
+  "name": "Waterford Wine and Spirits",
+  "address": "631 N Genesee St, Delafield, WI 53018",
+  "city": "Delafield",
+  "type": "packaged",
+  "lat": 43.060496,
+  "lng": -88.404716
+ },
+ {
+  "name": "Riley's Wines of the World",
+  "address": "402 W Gorham St, Madison, WI 53703",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.074297,
+  "lng": -89.393112
+ },
+ {
+  "name": "Trixie's Liquor",
+  "address": "2929 E Washington Ave, Madison, WI 53704",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.102846,
+  "lng": -89.343467
+ },
+ {
+  "name": "McFarland Liquor",
+  "address": "4716 Farwell St, McFarland, WI 53558",
+  "city": "McFarland",
+  "type": "packaged",
+  "lat": 43.013612,
+  "lng": -89.301907
+ },
+ {
+  "name": "City View Liquor",
+  "address": "6420 Cottage Grove Rd, Madison, WI 53718",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.0853,
+  "lng": -89.26751
+ },
+ {
+  "name": "Cork and Bottle",
+  "address": "855 E Johnson St, Madison, WI 53703",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.084213,
+  "lng": -89.376235
+ },
+ {
+  "name": "The Conscious Carnivore",
+  "address": "3236A University Ave, Madison, WI 53705",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.075603,
+  "lng": -89.442563
+ },
+ {
+  "name": "Jenifer St Market",
+  "address": "2038 Jenifer St, Madison, WI 53704",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.090508,
+  "lng": -89.35137
+ },
+ {
+  "name": "Metcalfe's",
+  "address": "726 N Midvale Blvd, Madison, WI 53705",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.074178,
+  "lng": -89.452486
+ },
+ {
+  "name": "Metcalfe's",
+  "address": "7455 Mineral Point Rd, Madison, WI 53719",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.058209,
+  "lng": -89.510734
+ },
+ {
+  "name": "Metcalfe's",
+  "address": "6700 W State St, Wauwatosa, WI 53213",
+  "city": "Wauwatosa",
+  "type": "packaged",
+  "lat": 43.046631,
+  "lng": -87.995798
+ },
+ {
+  "name": "Vic Pierce Liquor",
+  "address": "609 N Sherman Ave, Madison, WI 53704",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.107572,
+  "lng": -89.363083
+ },
+ {
+  "name": "Star Liquor",
+  "address": "1209 Williamson St, Madison, WI 53703",
+  "city": "Madison",
+  "type": "",
+  "lat": 43.083311,
+  "lng": -89.363808
+ },
+ {
+  "name": "Acorn Beverage",
+  "address": "561 E Milwaukee St, Whitewater, WI 53190",
+  "city": "Whitewater",
+  "type": "packaged",
+  "lat": 42.832202,
+  "lng": -88.720302
+ },
+ {
+  "name": "Bushel and Pecks",
+  "address": "328 State St, Beloit, WI 53511",
+  "city": "Beloit",
+  "type": "packaged",
+  "lat": 42.499586,
+  "lng": -89.036169
+ },
+ {
+  "name": "Glarner Bier House",
+  "address": "1201 State Road 69, New Glarus, WI 53574",
+  "city": "New Glarus",
+  "type": "packaged",
+  "lat": 42.809074,
+  "lng": -89.631323
+ },
+ {
+  "name": "Maple Leaf Cheese and Chocolate Shop",
+  "address": "554 1st St, New Glarus, WI 53574",
+  "city": "New Glarus",
+  "type": "packaged",
+  "lat": 42.814683,
+  "lng": -89.633544
+ },
+ {
+  "name": "The Local Beer and Spirits",
+  "address": "280 W Main St, Platteville, WI 53818",
+  "city": "Platteville",
+  "type": "packaged",
+  "lat": 42.734877,
+  "lng": -90.480786
+ },
+ {
+  "name": "New World Wine Shop",
+  "address": "830 W Main St, Lake Geneva, WI 53147",
+  "city": "Lake Geneva",
+  "type": "packaged",
+  "lat": 42.591388,
+  "lng": -88.436011
+ },
+ {
+  "name": "Piggly Wiggly",
+  "address": "100 E Geneva Square, Lake Geneva, WI 53147",
+  "city": "Lake Geneva",
+  "type": "packaged",
+  "lat": 42.605206,
+  "lng": -88.422061
+ },
+ {
+  "name": "Lake Geneva Country Meats",
+  "address": "5907 WI-50, Lake Geneva, WI 53147",
+  "city": "Lake Geneva",
+  "type": "packaged",
+  "lat": 42.594039,
+  "lng": -88.350417
+ },
+ {
+  "name": "Bruno's Liquors",
+  "address": "524 Broad St, Lake Geneva, WI 53147",
+  "city": "Lake Geneva",
+  "type": "packaged",
+  "lat": 42.596106,
+  "lng": -88.435707
+ },
+ {
+  "name": "Timer's Beverage Center",
+  "address": "3800 Northwestern Ave, Racine, WI 53405",
+  "city": "Racine",
+  "type": "packaged",
+  "lat": 42.753111,
+  "lng": -87.825951
+ },
+ {
+  "name": "Unkorkt",
+  "address": "240 Main St, Racine, WI 53403",
+  "city": "Racine",
+  "type": "packaged",
+  "lat": 42.730874,
+  "lng": -87.783963
+ },
+ {
+  "name": "JL Richards Prime Meats and Catering",
+  "address": "668 Janesville St, Oregon, WI 53575",
+  "city": "Oregon",
+  "type": "packaged",
+  "lat": 42.920588,
+  "lng": -89.378362
+ },
+ {
+  "name": "Alpine Liquors",
+  "address": "905 N Main St, Oregon, WI 53575",
+  "city": "Oregon",
+  "type": "packaged",
+  "lat": 42.940328,
+  "lng": -89.383854
+ },
+ {
+  "name": "Chill Zone",
+  "address": "801 Park Ave, Beaver Dam, WI 53916",
+  "city": "Beaver Dam",
+  "type": "packaged",
+  "lat": 43.456009,
+  "lng": -88.81942
+ },
+ {
+  "name": "Bottle Stop",
+  "address": "35 Park Ridge Dr, Stevens Point, WI 54481",
+  "city": "Stevens Point",
+  "type": "packaged",
+  "lat": 44.5229,
+  "lng": -89.546176
+ },
+ {
+  "name": "Cannery Wine and Spirits",
+  "address": "240 E Main St, Sun Prairie, WI 53590",
+  "city": "Sun Prairie",
+  "type": "packaged",
+  "lat": 43.183265,
+  "lng": -89.211213
+ },
+ {
+  "name": "Deforest Liquor Mart",
+  "address": "424 N Main St, DeForest, WI 53532",
+  "city": "DeForest",
+  "type": "packaged",
+  "lat": 43.252342,
+  "lng": -89.344527
+ },
+ {
+  "name": "Nelson Discount Liquor",
+  "address": "N Main St, Nelson, WI 54756",
+  "city": "Nelson",
+  "type": "packaged",
+  "lat": 44.424835,
+  "lng": -92.009221
+ },
+ {
+  "name": "Wine Cellar of Wisconsin",
+  "address": "12910 W Bluemound Rd, Elm Grove, WI 53122",
+  "city": "Elm Grove",
+  "type": "packaged",
+  "lat": 43.036644,
+  "lng": -88.07351
+ },
+ {
+  "name": "Richard's Liquors",
+  "address": "3033 8th St S, Wisconsin Rapids, WI 54494",
+  "city": "Wisconsin Rapids",
+  "type": "packaged",
+  "lat": 44.366881,
+  "lng": -89.816642
+ },
+ {
+  "name": "Supervalu Foods",
+  "address": "510 5th St, Algoma, WI 54201",
+  "city": "Algoma",
+  "type": "packaged",
+  "lat": 44.6084,
+  "lng": -87.439473
+ },
+ {
+  "name": "Riverside Liquor",
+  "address": "515 U.S. Hwy 2, Florence, WI 54121",
+  "city": "Florence",
+  "type": "packaged",
+  "lat": 45.869271,
+  "lng": -88.083103
+ },
+ {
+  "name": "Main Street Market",
+  "address": "7770 Wisconsin 42, Egg Harbor, WI 54209",
+  "city": "Egg Harbor",
+  "type": "packaged",
+  "lat": 45.04897,
+  "lng": -87.278955
+ },
+ {
+  "name": "Fish Creek Market",
+  "address": "4164 Main St, Fish Creek, WI 54212",
+  "city": "Fish Creek",
+  "type": "packaged",
+  "lat": 45.127939,
+  "lng": -87.246079
+ },
+ {
+  "name": "The Spirit Room",
+  "address": "1323 Broadway St, Superior, WI 54880",
+  "city": "Superior",
+  "type": "packaged",
+  "lat": 46.726861,
+  "lng": -92.096928
+ },
+ {
+  "name": "The Wine and Beer Barn",
+  "address": "75 County Rd W, Manitowish Waters, WI 54545",
+  "city": "Manitowish Waters",
+  "type": "packaged",
+  "lat": 46.135345,
+  "lng": -89.886699
+ },
+ {
+  "name": "Deak's Pub and Grill",
+  "address": "1017 Nygaard St, Stoughton, WI 53589",
+  "city": "Stoughton",
+  "type": "draft",
+  "lat": 42.927311,
+  "lng": -89.2489
+ },
+ {
+  "name": "Fahrenheit 364",
+  "address": "364 E Main St, Stoughton, WI 53589",
+  "city": "Stoughton",
+  "type": "packaged",
+  "lat": 42.916944,
+  "lng": -89.217048
+ },
+ {
+  "name": "Viking Brew Pub",
+  "address": "211 E Main St. Stoughton WI 53589",
+  "city": "Stoughton",
+  "type": "draft",
+  "lat": 42.916545,
+  "lng": -89.218918
+ },
+ {
+  "name": "Mr. Brews Taphouse",
+  "address": "305 W Johnson St, Madison, WI 53703",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.074463,
+  "lng": -89.390048
+ },
+ {
+  "name": "Off Broadway Drafthouse",
+  "address": "5404 Raywood Rd, Madison, WI 53713",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.046873,
+  "lng": -89.354747
+ },
+ {
+  "name": "Ale Asylum",
+  "address": "2002 Pankratz St, Madison WI 53704",
+  "city": "Madison",
+  "type": "draft",
+  "lat": 43.120734,
+  "lng": -89.35371
+ },
+ {
+  "name": "Pizza Brutta",
+  "address": "1805 Monroe St, Madison, WI 53711",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.065157,
+  "lng": -89.416402
+ },
+ {
+  "name": "Alchemy",
+  "address": "1980 Atwood Ave, Madison, WI 53704",
+  "city": "Madison",
+  "type": "draft",
+  "lat": 43.092434,
+  "lng": -89.35539
+ },
+ {
+  "name": "Glass Nickel Pizza",
+  "address": "2916 Atwood Ave, Madison, WI 53704",
+  "city": "Madison",
+  "type": "packaged",
+  "lat": 43.094033,
+  "lng": -89.341317
+ },
+ {
+  "name": "Lost Valley Cider",
+  "address": "408 W Florida St, Milwaukee, WI 53204",
+  "city": "Milwaukee",
+  "type": "draft",
+  "lat": 43.027608,
+  "lng": -87.915924
+ },
+ {
+  "name": "Barriques",
+  "address": "5957 McKee Rd, Fitchburg, WI 53719",
+  "city": "Fitchburg",
+  "type": "packaged",
+  "lat": 43.014856,
+  "lng": -89.457775
+ },
+ {
+  "name": "Barriques",
+  "address": "1901 Cayuga St, Middleton, WI 53562",
+  "city": "Middleton",
+  "type": "packaged",
+  "lat": 43.096187,
+  "lng": -89.513724
+ },
+ {
+  "name": "Headquarters Bar and Grill",
+  "address": "101 Concord Dr, Oregon, WI 53575",
+  "city": "Oregon",
+  "type": "draft",
+  "lat": 42.916602,
+  "lng": -89.37284
+ },
+ {
+  "name": "Green Lantern",
+  "address": "4412 Siggelkow Rd, McFarland, WI 53558",
+  "city": "McFarland",
+  "type": "draft",
+  "lat": 43.025832,
+  "lng": -89.306346
+ },
+ {
+  "name": "2 Brothers Bar and Grill",
+  "address": "116 W Fulton St, Edgerton, WI 53534",
+  "city": "Edgerton",
+  "type": "draft",
+  "lat": 42.834492,
+  "lng": -89.071003
+ },
+ {
+  "name": "Bier Zot",
+  "address": "10677 N Bay Shore Dr, Sister Bay, WI 54234",
+  "city": "Sister Bay",
+  "type": "draft",
+  "lat": 45.189166,
+  "lng": -87.121527
+ },
+ {
+  "name": "Ten Pin Alley",
+  "address": "6285 Nesbitt Rd, Fitchburg, WI 53719",
+  "city": "Fitchburg",
+  "type": "draft",
+  "lat": 43.007986,
+  "lng": -89.481423
+ },
+ {
+  "name": "Casual Joes",
+  "address": "319 W James St, Whitewater, WI 53190",
+  "city": "Whitewater",
+  "type": "draft",
+  "lat": 42.831096,
+  "lng": -88.732818
+ },
+ {
+  "name": "Eddie's Alehouse",
+  "address": "238 E Main St, Sun Prairie, WI 53590",
+  "city": "Sun Prairie",
+  "type": "draft",
+  "lat": 43.183259,
+  "lng": -89.211355
+ },
+ {
+  "name": "Black Forest Pub and Grill",
+  "address": "1765 Superior St, Three Lakes, WI 54562",
+  "city": "Three Lakes",
+  "type": "draft",
+  "lat": 45.798054,
+  "lng": -89.168164
+ },
+ {
+  "name": "5th Quarter",
+  "address": "161 Horizon Dr #110, Verona, WI 53593",
+  "city": "Verona",
+  "type": "draft",
+  "lat": 42.995578,
+  "lng": -89.524336
+ },
+ {
+  "name": "Vintage Brewing Company",
+  "address": "674 S Whitney Way, Madison, WI 53711",
+  "city": "Madison",
+  "type": "draft",
+  "lat": 43.050959,
+  "lng": -89.473956
+ },
+ {
+  "name": "Vintage Brewing Company",
+  "address": "600 Water St, Sauk City, WI 53583",
+  "city": "Sauk City",
+  "type": "draft",
+  "lat": 43.273956,
+  "lng": -89.720766
+ },
+ {
+  "name": "Tangent",
+  "address": "803 E Washington Ave, Madison WI",
+  "city": "Madison",
+  "type": "draft",
+  "lat": 43.081168,
+  "lng": -89.374753
+ },
+ {
+  "name": "Pat's Foods",
+  "address": "1000 Central Avenue, Florence, WI 54121",
+  "city": "Florence",
+  "type": "packaged",
+  "lat": 45.923937,
+  "lng": -88.257469
+ },
+ {
+  "name": "The Coffee Grounds",
+  "address": "4212 Southtowne Dr, Eau Claire, WI 54701",
+  "city": "Eau Claire",
+  "type": "packaged",
+  "lat": 44.773424,
+  "lng": -91.461625
+ },
+ {
+  "name": "Conundrum Creek",
+  "address": "4164 Main St, Fish Creek, WI 54212",
+  "city": "Fish Creek",
+  "type": "packaged",
+  "lat": 45.127933,
+  "lng": -87.246069
+ },
+ {
+  "name": "Cujak's Wine Market",
+  "address": "47 N. Main St, Fond du Lac, WI 54935",
+  "city": "Fond du Lac",
+  "type": "packaged",
+  "lat": 43.78027,
+  "lng": -88.446691
+ },
+ {
+  "name": "Downtown Grocery",
+  "address": "607 3rd St, Wausau, WI 54403",
+  "city": "Wausau",
+  "type": "packaged",
+  "lat": 44.961749,
+  "lng": -89.627408
+ },
+ {
+  "name": "Superior Discount Liquor",
+  "address": "823 S. 8th Street, Sheboygan, WI",
+  "city": "Sheboygan",
+  "type": "packaged",
+  "lat": 43.745844,
+  "lng": -87.712571
+ }
+]

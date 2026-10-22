@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "astro",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/contact-copy", "destination": "/private-events/", "permanent": true },
+    { "source": "/contact-copy/", "destination": "/private-events/", "permanent": true },
+    { "source": "/events-2", "destination": "/events/", "permanent": true },
+    { "source": "/events-2/", "destination": "/events/", "permanent": true },
+    { "source": "/event/:slug*", "destination": "/events/", "permanent": true },
+    { "source": "/sample-page", "destination": "/", "permanent": true },
+    { "source": "/sample-page/", "destination": "/", "permanent": true }
+  ],
+  "headers": [
+    { "source": "/_astro/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
+  ]
+}

@@ -1,0 +1,20 @@
+---
+import { site, DAY_ORDER, DAY_NAMES, fmtTime } from '../lib/site';
+interface Props { class?: string; compact?: boolean }
+const { class: cls = '', compact = false } = Astro.props;
+const byDay = Object.fromEntries(site.hours.map((h) => [h.day, h]));
+---
+<table class={`w-full border-collapse ${cls}`} data-hours-table>
+  <caption class="sr-only">Tasting room hours</caption>
+  <tbody>
+    {DAY_ORDER.map((d) => {
+      const h = byDay[d];
+      return (
+        <tr data-day={d} class="border-b border-ink-3 last:border-0">
+          <th scope="row" class={`py-2.5 pl-3 pr-4 text-left font-slab font-semibold ${compact ? 'text-sm' : 'text-[.95rem]'} ${h ? 'text-parchment' : 'text-muted'}`}>{DAY_NAMES[d]}<span class="today-label sr-only"></span></th>
+          <td class={`py-2.5 pr-3 text-right tabular-nums ${compact ? 'text-sm' : ''} ${h ? 'text-parchment' : 'text-muted'}`}>{h ? `${fmtTime(h.open)} – ${fmtTime(h.close)}` : 'Closed'}</td>
+        </tr>
+      );
+    })}
+  </tbody>
+</table>

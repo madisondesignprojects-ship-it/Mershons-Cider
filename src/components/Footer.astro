@@ -1,0 +1,51 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import HoursTable from './HoursTable.astro';
+import { NAV } from './nav';
+import { site, u } from '../lib/site';
+const year = new Date().getFullYear();
+---
+<footer class="mt-0">
+  <div class="gold-texture h-3" aria-hidden="true"></div>
+  <div class="border-t border-ink-3 bg-[#0f0b0a]">
+    <div class="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1.1fr]">
+      <div>
+        <Logo width={170} eager={false} />
+        <p class="mt-5 max-w-xs text-muted">{site.tagline} Fresh juice, fruit and wildflower honey. Nothing else.</p>
+        <div class="mt-6 flex gap-3">
+          <a href={site.facebook} target="_blank" rel="noopener" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink-3 text-peach hover:border-gold hover:text-gold-hi" aria-label="Facebook (opens in new tab)"><Icon name="facebook" size={18} /></a>
+          <a href={`mailto:${site.email}`} class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink-3 text-peach hover:border-gold hover:text-gold-hi" aria-label={`Email ${site.email}`}><Icon name="mail" size={18} /></a>
+          <a href={site.twitter} target="_blank" rel="noopener" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink-3 text-peach hover:border-gold hover:text-gold-hi" aria-label="X (Twitter) (opens in new tab)"><Icon name="xlogo" size={16} /></a>
+        </div>
+      </div>
+      <div>
+        <h2 class="eyebrow mb-4 font-slab">Visit</h2>
+        <address class="not-italic leading-relaxed">
+          <strong class="font-slab font-semibold text-peach">{site.name}</strong><br />{site.street}<br />{site.city}, {site.state} {site.zip}
+        </address>
+        <p class="mt-4 grid gap-1">
+          <a href={`tel:${site.tel}`}>{site.phone}</a>
+          <a href={`mailto:${site.email}`} class="break-all">{site.email}</a>
+        </p>
+      </div>
+      <div>
+        <h2 class="eyebrow mb-4 font-slab">Explore</h2>
+        <ul class="grid gap-2">
+          <li><a href={u('/')} class="text-parchment no-underline hover:text-gold-hi">Home</a></li>
+          {NAV.map((n) => <li><a href={u(n.href)} class="text-parchment no-underline hover:text-gold-hi">{n.label}</a></li>)}
+        </ul>
+      </div>
+      <div>
+        <h2 class="eyebrow mb-3 font-slab">Tasting room hours</h2>
+        <HoursTable compact />
+      </div>
+    </div>
+    <div class="border-t border-ink-3">
+      <div class="container-x flex flex-col gap-2 py-6 text-sm text-muted sm:flex-row sm:justify-between">
+        <p>Copyright © {year} {site.legalName}. All rights reserved.</p>
+        <p>{site.street}, {site.city}, {site.state} · {site.phone}</p>
+      </div>
+    </div>
+  </div>
+</footer>

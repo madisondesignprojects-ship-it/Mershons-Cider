@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.astro/
+qa/node_modules
+qa/*.png
+qa/lighthouse-*.json

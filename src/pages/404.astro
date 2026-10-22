@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import { u } from '../lib/site';
+---
+<Base title="Page not found | Mershon's Cider" current="" path="/404/" noindex description="This page couldn't be found.">
+  <section class="grain relative isolate overflow-hidden">
+    <div class="absolute inset-0 -z-10"><Img src="photos/flight-closeup.jpg" alt="" eager sizes="100vw" class="h-full w-full object-cover" pictureClass="block h-full w-full" /><div class="absolute inset-0 bg-ink/80"></div></div>
+    <div class="container-x flex min-h-[70svh] flex-col items-start justify-center py-24">
+      <p class="eyebrow mb-3">Error 404</p>
+      <h1 class="max-w-2xl text-6xl md:text-8xl">This glass is empty.</h1>
+      <p class="mt-5 max-w-lg text-lg">The page you're looking for has moved or doesn't exist. Let's get you back to the good stuff.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={u('/')} class="btn btn-gold">Back to home</a>
+        <a href={u('/tasting-room/')} class="btn btn-line">Tasting room hours</a>
+        <a href={u('/order-cider/')} class="btn btn-line">Order cider</a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+
+@theme {
+  /* Brand palette, pulled from mershonscider.com CSS + logo art */
+  --color-ink: #0C0909;        /* page background (old site body) */
+  --color-ink-2: #151010;      /* raised surface */
+  --color-ink-3: #1E1716;      /* cards / rules */
+  --color-char: #222222;       /* old footer base */
+  --color-gold: #DBAA3A;       /* header/footer texture */
+  --color-gold-hi: #E5BD4C;    /* texture highlight */
+  --color-honey: #D49C25;      /* old gold text */
+  --color-amber: #DB7C00;      /* old H1 colour */
+  --color-ember: #DD6420;      /* old accent orange */
+  --color-flame: #E35E02;      /* old icon orange */
+  --color-peach: #F6C078;      /* logo panel */
+  --color-parchment: #E4D2BA;  /* logo lettering cream */
+  --color-muted: #B3A391;
+  --font-display: 'Lobster Two', Georgia, serif;
+  --font-slab: 'Bitter', Georgia, serif;
+  --font-sans: 'Source Sans 3 Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+@layer base {
+  html { background: var(--color-ink); color-scheme: dark; scroll-padding-top: 96px; -webkit-text-size-adjust: 100%; }
+  body { font-family: var(--font-sans); color: var(--color-parchment); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.05; color: var(--color-peach); text-wrap: balance; }
+  p { text-wrap: pretty; }
+  a { color: var(--color-gold-hi); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { color: var(--color-peach); }
+  :focus-visible { outline: 2px solid var(--color-gold-hi); outline-offset: 3px; }
+  ::selection { background: var(--color-amber); color: var(--color-ink); }
+  img { max-width: 100%; height: auto; }
+}
+
+@layer components {
+  .container-x { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: 1.25rem; }
+  @media (min-width: 768px) { .container-x { padding-inline: 2rem; } }
+  .eyebrow { font-family: var(--font-slab); font-weight: 600; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--color-honey); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 48px; padding: .7rem 1.4rem; font-family: var(--font-slab); font-weight: 600; font-size: .86rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background-color .2s, color .2s, border-color .2s, transform .2s; }
+  .btn:active { transform: translateY(1px); }
+  .btn-gold { background: var(--color-gold); color: var(--color-ink); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .15), 0 10px 30px -12px rgb(219 170 58 / .6); }
+  .btn-gold:hover { background: var(--color-gold-hi); color: var(--color-ink); }
+  .btn-line { border: 1px solid rgb(229 189 76 / .55); color: var(--color-peach); }
+  .btn-line:hover { border-color: var(--color-gold-hi); background: rgb(219 170 58 / .08); color: var(--color-peach); }
+  .btn-sm { min-height: 44px; padding: .5rem 1rem; font-size: .76rem; }
+  .gold-texture { background-color: var(--color-gold); background-image: url('/textures/gold.webp'); background-size: 700px auto; color: var(--color-ink); }
+  .rule-orn { display: flex; align-items: center; gap: .9rem; color: var(--color-honey); }
+  .rule-orn::before, .rule-orn::after { content: ''; height: 1px; flex: 1; background: linear-gradient(90deg, transparent, rgb(212 156 37 / .7), transparent); }
+  .card { background: var(--color-ink-2); border: 1px solid var(--color-ink-3); border-radius: 3px; }
+  .photo-frame { position: relative; }
+  .photo-frame::after { content: ''; position: absolute; inset: 10px; border: 1px solid rgb(246 192 120 / .35); pointer-events: none; }
+  .prose-m p + p { margin-top: 1rem; }
+  .grain::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .07; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .today { color: var(--color-ink); background: var(--color-gold); }
+}
+
+@layer base { [aria-invalid='true'] { border-color: var(--color-ember) !important; box-shadow: 0 0 0 1px var(--color-ember); } }

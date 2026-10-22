@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
+import MailForm from '../components/MailForm.astro';
+import MapEmbed from '../components/MapEmbed.astro';
+import { site, fullAddress } from '../lib/site';
+const ways = [
+  { icon: 'phone', t: 'Call', v: site.phone, href: `tel:${site.tel}` },
+  { icon: 'mail', t: 'Email', v: site.email, href: `mailto:${site.email}` },
+  { icon: 'facebook', t: 'Facebook', v: 'facebook.com/MershonsCider', href: site.facebook, ext: true },
+  { icon: 'pin', t: 'Visit', v: fullAddress, href: site.directions, ext: true },
+];
+---
+<Base title="Contact | Mershon's Cidery, Stoughton WI" current="contact" path="/contact/"
+  description="Comments, questions, direct cider shipments and more. Call, email or message Mershon's Cidery at 124 W Main St, Stoughton, WI. Tasting room open Wednesday to Sunday.">
+  <PageHero eyebrow="Get in touch" title="Comments, questions, direct cider shipments & more" image="photos/taproom-bar.jpg" alt="The Mershon's tasting room bar from above" position="50% 50%" />
+
+  <section class="py-16 md:py-24">
+    <div class="container-x grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
+      <div class="min-w-0">
+        <h2 class="text-5xl">Say hello</h2>
+        <p class="mt-3 text-lg text-muted">*{site.openDaysNote}</p>
+        <ul class="mt-8 grid gap-3">
+          {ways.map((w) => (
+            <li><a href={w.href} target={w.ext ? '_blank' : undefined} rel={w.ext ? 'noopener' : undefined} class="card group flex items-center gap-4 p-5 text-parchment no-underline hover:border-honey/60">
+              <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gold text-ink"><Icon name={w.icon} size={19} /></span>
+              <span class="min-w-0"><span class="block font-slab text-xs font-semibold uppercase tracking-[.16em] text-honey">{w.t}</span><span class="block break-all text-lg sm:break-words group-hover:text-gold-hi">{w.v}</span></span>
+              {w.ext && <span class="sr-only">(opens in new tab)</span>}
+            </a></li>
+          ))}
+        </ul>
+        <MapEmbed class="mt-6" />
+      </div>
+      <div class="card min-w-0 self-start p-6 md:p-10">
+        <h2 class="text-4xl">Send us a message</h2>
+        <p class="mt-2 mb-6 text-muted">Please fill out the form below and we will contact you as soon as possible.</p>
+        <MailForm id="contact-form" subject="Website message for Mershon's Cidery" submit="Send message" fields={[
+          { name: 'name', label: 'Your name', required: true, autocomplete: 'name' },
+          { name: 'email', label: 'Your email', type: 'email', required: true, autocomplete: 'email' },
+          { name: 'message', label: 'Your message', textarea: true, required: true },
+        ]} />
+      </div>
+    </div>
+  </section>
+</Base>

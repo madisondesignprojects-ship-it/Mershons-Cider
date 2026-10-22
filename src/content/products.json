@@ -1,0 +1,72 @@
+[
+ {
+  "id": 11177,
+  "slug": "artisan",
+  "name": "Artisan Cider",
+  "fullName": "Mershon's Artisan Cider",
+  "abv": 6.5,
+  "price": 11.99,
+  "size": "750 mL Bottle",
+  "varietal": "Apple",
+  "desc": "Mershon's Artisan Cider is handcrafted hard apple cider made from only fresh pressed Midwest grown apples and locally sourced wildflower honey. Mershon's Cider is free from any additives, preservatives, and concentrates. This naturally gluten free cider is made in the long standing tradition of our ancestors. Only apples and honey, there is nothing else needed!",
+  "url": "https://vinoshipper.com/shop/mershon_s_cidery/mershon_s_artisan_cider_11,177",
+  "notAvailableIn": []
+ },
+ {
+  "id": 11178,
+  "slug": "death-valley",
+  "name": "Death Valley Dry",
+  "fullName": "Mershon's Death Valley Dry",
+  "abv": 10.0,
+  "price": 13.99,
+  "size": "750 mL Bottle",
+  "varietal": "Apple",
+  "desc": "Mershon's Death Valley, a honey apple wine made from only Midwest grown apples and locally sourced wildflower honey. Dry as a scorching summer day in America's Southwest, the robust flavor of this honey apple wine will keep you wanting more.",
+  "url": "https://vinoshipper.com/shop/mershon_s_cidery/mershon_s_death_valley_dry_11,178",
+  "notAvailableIn": [
+   {
+    "abbr": "AL",
+    "name": "Alabama"
+   }
+  ]
+ },
+ {
+  "id": 13519,
+  "slug": "mystic-berry",
+  "name": "Mystic Berry",
+  "fullName": "Mershon's Mystic Berry",
+  "abv": 5.5,
+  "price": 11.99,
+  "size": "750 mL Bottle",
+  "varietal": "Apple",
+  "desc": "Mershon's Mystic Berry is our original artisan cider with fresh raspberries, blackberries, and strawberries added at the end of fermentation. The Sweet and tart apple berry taste will enliven the senses with four types of fruit and honey!",
+  "url": "https://vinoshipper.com/shop/mershon_s_cidery/mershon_s_mystic_berry_13,261",
+  "notAvailableIn": []
+ },
+ {
+  "id": 25362,
+  "slug": "snowed-in-cinnamon",
+  "name": "Snowed In Cinnamon",
+  "fullName": "Mershon's Snowed In Cinnamon",
+  "abv": 6.0,
+  "price": 11.99,
+  "size": "750 mL Bottle",
+  "varietal": "Apple",
+  "desc": "Mershon's Snowed In Cinnamon is the perfect blend of apple and cinnamon, with a hint of honey. Enjoy during the long winter days of Wisconsin to warm you up. Serve this cider either cold or heated up for a refreshing and smooth winter drink!",
+  "url": "https://vinoshipper.com/shop/mershon_s_cidery/mershons_snowed_in_cinnamon_22,635",
+  "notAvailableIn": []
+ },
+ {
+  "id": 35896,
+  "slug": "peach-escape",
+  "name": "Peach Escape",
+  "fullName": "Mershon's Peach Escape",
+  "abv": 6.0,
+  "price": 13.99,
+  "size": "750 mL Bottle",
+  "varietal": "Other",
+  "desc": "Escape to the southern orchards with Mershon's Peach Cider. Fresh pressed peach juice blended with apple juice and fermented with honey. A refreshing summer treat!",
+  "url": "https://vinoshipper.com/shop/mershon_s_cidery/mershons_peach_escape_35896",
+  "notAvailableIn": []
+ }
+]

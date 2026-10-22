@@ -1,0 +1,9 @@
+---
+import { site } from '../lib/site';
+interface Props { class?: string; tone?: 'dark' | 'light' }
+const { class: cls = '', tone = 'dark' } = Astro.props;
+---
+<span class={`inline-flex items-center gap-2 ${cls}`} data-open-badge data-hours={JSON.stringify(site.hours)}>
+  <span data-dot class={`h-2 w-2 rounded-full ${tone === 'light' ? 'bg-ink/40' : 'bg-muted/60'}`}></span>
+  <span data-text>Open Wed–Sun</span>
+</span>

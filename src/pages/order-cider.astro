@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Img from '../components/Img.astro';
+import Icon from '../components/Icon.astro';
+import { site, products, u } from '../lib/site';
+const stateNames: Record<string, string> = { AK: 'Alaska', AL: 'Alabama', AZ: 'Arizona', CO: 'Colorado', DC: 'Washington DC', FL: 'Florida', GA: 'Georgia', HI: 'Hawaii', IA: 'Iowa', ID: 'Idaho', IN: 'Indiana', KS: 'Kansas', LA: 'Louisiana', MA: 'Massachusetts', MD: 'Maryland', MN: 'Minnesota', MO: 'Missouri', NC: 'North Carolina', ND: 'North Dakota', NE: 'Nebraska', NH: 'New Hampshire', NM: 'New Mexico', NV: 'Nevada', NY: 'New York', OH: 'Ohio', OR: 'Oregon', PA: 'Pennsylvania', SC: 'South Carolina', TN: 'Tennessee', TX: 'Texas', WA: 'Washington', WI: 'Wisconsin', WV: 'West Virginia', WY: 'Wyoming' };
+---
+<Base title="Order Cider | Mershon's Cider Shipped to Your Door" current="order-cider" path="/order-cider/"
+  description="Order Mershon's handcrafted hard cider online and have it shipped directly to your door, pick it up at the cidery, or get local delivery. Kegs available for gatherings.">
+  <PageHero eyebrow="Order online" title="Cider shipped directly to your door" image="photos/bottles-shelf.jpg" alt="Mershon's bottles on a wooden shelf" position="70% 50%"
+    lead="Order bottles through our Vinoshipper shop. Ships to 33 states plus DC, with on-site pick up and local delivery available.">
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href={site.shop} target="_blank" rel="noopener" class="btn btn-gold"><Icon name="truck" size={17} />Open the online shop<span class="sr-only"> (opens in new tab)</span></a>
+      <a href="#kegs" class="btn btn-line">Cider by the keg</a>
+    </div>
+  </PageHero>
+
+  <section class="py-16 md:py-24" aria-labelledby="products">
+    <div class="container-x">
+      <p class="eyebrow mb-3">Product list</p>
+      <h2 id="products" class="text-5xl">Pick your bottles</h2>
+      <ul class="mt-10 grid gap-6 md:grid-cols-2">
+        {products.map((p) => (
+          <li class="card grid overflow-hidden sm:grid-cols-[minmax(0,220px)_1fr]">
+            <div class="bg-[#f4efe7]"><Img src={`labels/${p.slug}.jpg`} alt={`${p.fullName} label artwork`} widths={[360, 560, 750]} sizes="(min-width:640px) 220px, 100vw" class="aspect-[5/4] h-full w-full object-cover sm:aspect-auto" pictureClass="block h-full" /></div>
+            <div class="flex flex-col p-6">
+              <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h3 class="text-[2rem]">{p.name}</h3>
+                <p class="font-slab text-xl font-semibold text-gold-hi">${p.price.toFixed(2)}</p>
+              </div>
+              <p class="mt-1 font-slab text-xs font-semibold uppercase tracking-[.16em] text-honey">{p.abv}% ABV · {p.size} · {p.varietal === 'Apple' ? 'Apple' : 'Peach & apple'}</p>
+              <p class="mt-3 flex-1 text-[.97rem] leading-relaxed text-muted">{p.desc}</p>
+              {p.notAvailableIn.length > 0 && <p class="mt-3 text-sm text-muted">Not available for shipping to {p.notAvailableIn.map((s) => s.name).join(', ')}.</p>}
+              <a href={p.url} target="_blank" rel="noopener" class="btn btn-gold btn-sm mt-5 self-start">Buy {p.name}<span class="sr-only"> on Vinoshipper (opens in new tab)</span><Icon name="ext" size={15} /></a>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-6 text-sm text-muted">Prices and availability as listed in our Vinoshipper shop; checkout and shipping are handled through Vinoshipper.</p>
+    </div>
+  </section>
+
+  <section class="border-y border-ink-3 bg-ink-2 py-16 md:py-20" aria-labelledby="ship">
+    <div class="container-x grid gap-10 lg:grid-cols-[1fr_1.6fr]">
+      <div>
+        <p class="eyebrow mb-3">Available in</p>
+        <h2 id="ship" class="text-5xl">Where we ship</h2>
+        <ul class="mt-6 grid gap-3">
+          <li class="flex items-center gap-3"><Icon name="store" size={20} class="text-gold-hi" />On-site pick up available</li>
+          <li class="flex items-center gap-3"><Icon name="truck" size={20} class="text-gold-hi" />Local delivery available</li>
+        </ul>
+      </div>
+      <ul class="flex flex-wrap content-start gap-2" aria-label="States we ship to">
+        {site.shipStates.map((s) => <li class="rounded-full border border-ink-3 bg-ink px-3.5 py-1.5 text-sm"><abbr title={stateNames[s]} class="no-underline">{stateNames[s]}</abbr></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section id="kegs" class="py-16 md:py-24" aria-labelledby="keg">
+    <div class="container-x grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div class="photo-frame"><Img src="photos/barrel.jpg" alt="A barrel in the Mershon's cidery" sizes="(min-width:1024px) 45vw, 100vw" class="aspect-[4/3] w-full rounded-[3px] object-cover" /></div>
+      <div>
+        <p class="eyebrow mb-3">For gatherings</p>
+        <h2 id="keg" class="text-5xl">Mershon's Cider by the keg</h2>
+        <p class="mt-5 text-lg">Fresh artisan cider by the keg, perfect for small to large gatherings. Also can be set up in a kegerator for long lasting use.</p>
+        <p class="mt-3 text-muted">Please contact us for more details and pricing.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={u('/contact/')} class="btn btn-gold"><Icon name="keg" size={17} />Ask about kegs</a>
+          <a href={`tel:${site.tel}`} class="btn btn-line"><Icon name="phone" size={17} />{site.phone}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

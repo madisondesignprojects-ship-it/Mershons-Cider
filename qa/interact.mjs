@@ -1,0 +1,15 @@
+import { chromium } from 'playwright';
+const base = process.env.QA_BASE ?? 'http://127.0.0.1:4420';
+const b = await chromium.launch({ executablePath: '/usr/bin/google-chrome', args: ['--no-sandbox'] });
+const p = await b.newPage({ viewport: { width: 390, height: 844 } });
+const errs = []; p.on('pageerror', (e) => errs.push(String(e)));
+await p.goto(base + '/where-to-find/');
+await p.click('[data-filter="draft"]'); const draft = await p.textContent('[data-finder-count]');
+await p.click('[data-filter="all"]'); await p.fill('[data-finder-q]', 'madison'); const mad = await p.textContent('[data-finder-count]');
+await p.fill('[data-finder-q]', 'zzzz'); const none = await p.isVisible('[data-finder-empty]');
+await p.click('[data-menu-open]'); const menuOpen = await p.isVisible('[data-menu]'); await p.keyboard.press('Escape'); const menuClosed = !(await p.isVisible('[data-menu]'));
+await p.goto(base + '/contact/');
+await p.click('#contact-form button[type=submit]'); const msg = await p.textContent('#contact-form [data-form-msg]'); const inval = await p.locator('#contact-form [aria-invalid=true]').count();
+await p.click('[data-map-load]'); const iframe = await p.locator('[data-map] iframe').count();
+console.log({ draft, mad, none, menuOpen, menuClosed, msg, inval, iframe, errs });
+await b.close();

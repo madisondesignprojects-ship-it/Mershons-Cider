@@ -1,0 +1,19 @@
+---
+// No server on a static demo: the form composes an email to the cidery in the visitor's mail app.
+import Icon from './Icon.astro';
+import { site } from '../lib/site';
+interface Props { subject: string; fields: { name: string; label: string; type?: string; required?: boolean; textarea?: boolean; autocomplete?: string; placeholder?: string }[]; submit: string; id: string }
+const { subject, fields, submit, id } = Astro.props;
+---
+<form class="grid gap-4" data-mailform data-to={site.email} data-subject={subject} id={id} novalidate>
+  {fields.map((f) => (
+    <div class="grid gap-1.5">
+      <label for={`${id}-${f.name}`} class="font-slab text-sm font-semibold text-peach">{f.label}{f.required && <span class="text-amber" aria-hidden="true"> *</span>}</label>
+      {f.textarea
+        ? <textarea id={`${id}-${f.name}`} name={f.name} rows="5" required={f.required} placeholder={f.placeholder} class="w-full rounded-[2px] border border-ink-3 bg-ink px-4 py-3 text-parchment placeholder:text-muted/80 focus:border-gold focus:outline-none"></textarea>
+        : <input id={`${id}-${f.name}`} name={f.name} type={f.type ?? 'text'} required={f.required} autocomplete={f.autocomplete} placeholder={f.placeholder} class="min-h-[48px] w-full rounded-[2px] border border-ink-3 bg-ink px-4 text-parchment placeholder:text-muted/80 focus:border-gold focus:outline-none" />}
+    </div>
+  ))}
+  <p class="text-sm text-muted" data-form-msg role="status" aria-live="polite">Sending opens your email app with your message ready to go to {site.email}.</p>
+  <button type="submit" class="btn btn-gold justify-self-start"><Icon name="send" size={17} />{submit}</button>
+</form>

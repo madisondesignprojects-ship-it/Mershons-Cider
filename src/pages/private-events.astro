@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Img from '../components/Img.astro';
+import Icon from '../components/Icon.astro';
+import MailForm from '../components/MailForm.astro';
+import { site, fullAddress } from '../lib/site';
+---
+<Base title="Private Events | Rent Space at Mershon's Cidery, Stoughton WI" current="private-events" path="/private-events/" og="/og/private-events.jpg"
+  description="Rent space at Mershon's Cidery in downtown Stoughton for corporate events, birthdays, receptions, meetings, fundraisers, showers and reunions. Contact us to book.">
+  <PageHero eyebrow="Private events" title="Rent space for private events" image="photos/event-crowd.jpg" alt="A full house at Mershon's under colored lights" position="50% 50%"
+    lead="Host your next gathering at Mershon's Cidery on Main Street in Stoughton.">
+    <div class="mt-8"><a href="#book" class="btn btn-gold"><Icon name="calendar" size={17} />Book your event</a></div>
+  </PageHero>
+
+  <section class="py-16 md:py-24">
+    <div class="container-x">
+      <p class="eyebrow mb-3">Perfect for</p>
+      <ul class="flex flex-wrap gap-3">
+        {site.privateEventTypes.map((t) => <li class="rounded-full border border-honey/50 px-5 py-2.5 font-display text-2xl text-peach">{t}</li>)}
+      </ul>
+      <div class="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+        <Img src="photos/taproom-aerial.jpg" alt="The bar and seating seen from above" sizes="(min-width:768px) 50vw, 100vw" class="aspect-[16/10] h-full w-full rounded-[3px] object-cover" pictureClass="col-span-2 block" />
+        <Img src="photos/taproom-hall.jpg" alt="Long tables and games in the taproom" sizes="(min-width:768px) 25vw, 50vw" class="aspect-[4/5] h-full w-full rounded-[3px] object-cover md:aspect-auto" pictureClass="block" />
+        <Img src="photos/stage.jpg" alt="Stage with speakers and a large screen" sizes="(min-width:768px) 25vw, 50vw" class="aspect-[4/5] h-full w-full rounded-[3px] object-cover md:aspect-auto" pictureClass="block" />
+      </div>
+    </div>
+  </section>
+
+  <section id="book" class="border-t border-ink-3 bg-ink-2 py-16 md:py-24" aria-labelledby="bk">
+    <div class="container-x grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+      <div>
+        <h2 id="bk" class="text-5xl">Contact us to book your event today</h2>
+        <div class="mt-8 grid gap-1 text-lg">
+          <p class="font-slab font-semibold text-peach">{site.name}</p>
+          <address class="not-italic">{site.street}<br />{site.city}, {site.state} {site.zip}</address>
+        </div>
+        <p class="mt-6 grid gap-2 text-lg">
+          <a href={`tel:${site.tel}`} class="inline-flex items-center gap-3"><Icon name="phone" size={18} />{site.phone}</a>
+          <a href={`mailto:${site.email}`} class="inline-flex items-center gap-3 break-all"><Icon name="mail" size={18} />{site.email}</a>
+          <a href={site.directions} target="_blank" rel="noopener" class="inline-flex items-center gap-3"><Icon name="nav" size={18} />Directions to {fullAddress}<span class="sr-only"> (opens in new tab)</span></a>
+        </p>
+      </div>
+      <div class="card p-6 md:p-10">
+        <MailForm id="event-form" subject="Private event inquiry" submit="Send inquiry" fields={[
+          { name: 'name', label: 'Your name or organization', required: true, autocomplete: 'name' },
+          { name: 'email', label: 'Your email', type: 'email', required: true, autocomplete: 'email' },
+          { name: 'phone', label: 'Your phone', type: 'tel', autocomplete: 'tel' },
+          { name: 'details', label: 'Type of event, date and number of attendees', textarea: true, required: true },
+        ]} />
+      </div>
+    </div>
+  </section>
+</Base>

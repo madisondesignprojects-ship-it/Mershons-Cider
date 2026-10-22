@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Img from '../components/Img.astro';
+import Icon from '../components/Icon.astro';
+import Ornament from '../components/Ornament.astro';
+import { u } from '../lib/site';
+const points = [
+  { icon: 'apple', t: 'A cyser, not just a cider.', d: 'Wildflower honey in every signature recipe makes a mead-cider cross: robust in alcohol, naturally sweet from the apples.' },
+  { icon: 'glass', t: 'Nothing else added.', d: 'No concentrate, added flavors or preservatives. Just fresh juice, fruit and honey, guaranteed.' },
+  { icon: 'store', t: 'Taste it yourself.', d: 'Grab a bottle at a nearby store or sample it in our tasting room. We\'re confident it won\'t disappoint.' },
+];
+---
+<Base title="Our Story | Mershon's Cider, Stoughton WI" current="our-story" path="/our-story/" og="/og/our-story.jpg"
+  description="How founder Joseph Baird set out to make hard cider the traditional way: fresh-pressed apple juice and wildflower honey, with nothing else added.">
+  <PageHero eyebrow="A new take on a traditional drink" title="Our Story" image="photos/barrels-row.jpg" alt="Oak barrels in the Mershon's cidery" position="50% 45%" />
+
+  <section class="py-16 md:py-24">
+    <div class="container-x grid gap-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-20">
+      <div>
+        <p class="text-xl leading-relaxed text-parchment md:text-[1.4rem] md:leading-[1.6] first-letter:float-left first-letter:mr-3 first-letter:font-display first-letter:text-[4.6rem] first-letter:leading-[.8] first-letter:text-amber">
+          Cider is said to be the drink of our forefathers, made for generations from old stone mills to hand-crank presses, until beer took over. Our founder, Joseph Baird, was shocked at how few hard ciders he could find locally, so he bought a book on cider making and experimented at home for years to create our original recipe: fresh-pressed apple juice and honey.
+        </p>
+        <ul class="mt-10 grid gap-4">
+          {points.map((p) => (
+            <li class="card flex gap-5 p-6">
+              <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-honey/50 text-gold-hi"><Icon name={p.icon} size={20} /></span>
+              <div><h2 class="text-[1.7rem] leading-tight">{p.t}</h2><p class="mt-1 text-muted">{p.d}</p></div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="grid gap-4 self-start">
+        <div class="photo-frame"><Img src="photos/portrait.jpg" alt="Portrait in the Mershon's tasting room" sizes="(min-width:1024px) 38vw, 100vw" class="aspect-[4/3] w-full rounded-[3px] object-cover object-top" /></div>
+        <div class="grid grid-cols-2 gap-4">
+          <Img src="photos/still.jpg" alt="Copper and steel column in the cidery" sizes="(min-width:1024px) 19vw, 50vw" class="aspect-[3/4] w-full rounded-[3px] object-cover" />
+          <Img src="photos/bottles-shelf-wide.jpg" alt="A cider tasting flight on the bar" sizes="(min-width:1024px) 19vw, 50vw" class="aspect-[3/4] w-full rounded-[3px] object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden border-y border-ink-3 bg-ink-2 py-20 md:py-28">
+    <div class="container-x max-w-4xl text-center">
+      <Ornament class="mx-auto mb-8 max-w-sm" />
+      <p class="font-display text-2xl leading-snug text-amber md:text-3xl">Although the blends of apples may vary from season to season, we guarantee our recipe and quality will never change!</p>
+      <blockquote class="mt-8">
+        <p class="font-display text-3xl leading-snug text-peach md:text-[2.6rem]">“Traditionally hard apple cider is made from fresh pressed apple juice and natural sugar, they did not have added flavors and concentrates when this fine drink was first created.”</p>
+        <footer class="mt-5 font-slab text-sm font-semibold uppercase tracking-[.2em] text-muted">Joseph Baird, founder</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="container-x flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+      <h2 class="text-4xl md:text-5xl">Ready for a pour?</h2>
+      <div class="flex flex-wrap gap-3">
+        <a href={u('/tasting-room/')} class="btn btn-gold">Visit the tasting room</a>
+        <a href={u('/where-to-find/')} class="btn btn-line">Find a bottle near you</a>
+      </div>
+    </div>
+  </section>
+</Base>

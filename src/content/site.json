@@ -1,0 +1,32 @@
+{
+  "name": "Mershon's Cidery",
+  "brand": "Mershon's Cider",
+  "legalName": "Mershonian Cidery LLC",
+  "tagline": "Handcrafted hard apple cider from Stoughton WI.",
+  "intro": "Handcrafted hard apple cider from Stoughton WI. At Mershon's Cidery we take pride in providing the highest quality apple cider products to Wisconsin. Taste and see all we have to offer!",
+  "street": "124 W Main St",
+  "city": "Stoughton",
+  "state": "WI",
+  "zip": "53589",
+  "phone": "608-235-6832",
+  "tel": "+16082356832",
+  "email": "mershoniancidery@yahoo.com",
+  "facebook": "https://www.facebook.com/MershonsCider/",
+  "twitter": "https://twitter.com/mershons_cider",
+  "directions": "https://www.google.com/maps/dir/?api=1&destination=Mershon%27s+Cidery%2C+124+W+Main+St%2C+Stoughton%2C+WI+53589",
+  "mapEmbed": "https://maps.google.com/maps?q=Mershon%27s+Cidery%2C+124+W+Main+St%2C+Stoughton%2C+WI+53589&z=16&output=embed",
+  "shop": "https://vinoshipper.com/shop/mershon_s_cidery",
+  "geo": { "lat": 42.931196, "lng": -89.215144 },
+  "openDaysNote": "Tasting Room Open Wednesday – Sunday",
+  "hours": [
+    { "day": "wed", "open": "14:00", "close": "20:00" },
+    { "day": "thu", "open": "14:00", "close": "20:00" },
+    { "day": "fri", "open": "14:00", "close": "20:00" },
+    { "day": "sat", "open": "12:00", "close": "20:00" },
+    { "day": "sun", "open": "12:00", "close": "17:00" }
+  ],
+  "taproomOffer": ["Draft Cider", "Tasting Flights", "House Cocktails", "Beer"],
+  "bottleSizes": "750ml / 12oz",
+  "shipStates": ["AK","AL","AZ","CO","DC","FL","GA","HI","IA","ID","IN","KS","LA","MA","MD","MN","MO","NC","ND","NE","NH","NM","NV","NY","OH","OR","PA","SC","TN","TX","WA","WI","WV","WY"],
+  "privateEventTypes": ["Corporate Events", "Birthdays", "Receptions", "Meetings", "Fundraisers", "Showers", "Reunions"]
+}

@@ -1,0 +1,54 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import OpenBadge from './OpenBadge.astro';
+import { NAV } from './nav';
+import { site, u } from '../lib/site';
+interface Props { current: string }
+const { current } = Astro.props;
+---
+<div class="gold-texture relative z-50 text-[.8rem] font-slab font-semibold tracking-wide">
+  <div class="container-x flex h-9 items-center justify-between gap-4">
+    <OpenBadge tone="light" class="text-ink" />
+    <p class="hidden sm:block"><a href={site.directions} target="_blank" rel="noopener" class="text-ink no-underline hover:underline">{site.street}, {site.city}, {site.state}<span class="sr-only"> (directions, opens in new tab)</span></a></p>
+    <p class="flex items-center gap-4">
+      <a href={`tel:${site.tel}`} class="text-ink no-underline hover:underline">{site.phone}</a>
+      <a href={site.facebook} target="_blank" rel="noopener" class="hidden text-ink hover:text-ink/70 sm:inline-flex" aria-label="Mershon's on Facebook (opens in new tab)"><Icon name="facebook" size={16} /></a>
+    </p>
+  </div>
+</div>
+<header class="sticky top-0 z-40 border-b border-ink-3 bg-ink/92 backdrop-blur-md">
+  <div class="container-x flex h-[72px] items-center justify-between gap-6">
+    <Logo width={136} />
+    <nav aria-label="Main" class="hidden xl:block">
+      <ul class="flex items-center gap-7">
+        {NAV.map((n) => (
+          <li><a href={u(n.href)} aria-current={current === n.key ? 'page' : undefined}
+            class={`relative inline-flex min-h-[44px] items-center font-display text-[1.12rem] font-bold no-underline transition-colors hover:text-gold-hi ${current === n.key ? 'text-gold-hi after:absolute after:inset-x-0 after:bottom-1.5 after:h-0.5 after:bg-amber' : 'text-parchment'}`}>{n.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href={u('/order-cider/')} class="btn btn-gold btn-sm hidden sm:inline-flex">Order Cider</a>
+      <button type="button" class="inline-flex h-12 w-12 items-center justify-center text-peach hover:text-gold-hi xl:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-open><Icon name="menu" size={28} /></button>
+    </div>
+  </div>
+</header>
+<div id="mobile-menu" class="fixed inset-0 z-[60] hidden overflow-y-auto bg-ink xl:hidden" role="dialog" aria-modal="true" aria-label="Menu" data-menu>
+  <div class="container-x flex h-[72px] items-center justify-between border-b border-ink-3">
+    <Logo width={136} eager={false} />
+    <button type="button" class="inline-flex h-12 w-12 items-center justify-center text-peach hover:text-gold-hi" aria-label="Close menu" data-menu-close><Icon name="x" size={28} /></button>
+  </div>
+  <nav aria-label="Mobile" class="container-x pb-10">
+    <ul class="pt-2">
+      <li><a href={u('/')} aria-current={current === 'home' ? 'page' : undefined} class={`flex min-h-[58px] items-center border-b border-ink-3 font-display text-[1.9rem] font-bold no-underline ${current === 'home' ? 'text-gold-hi' : 'text-peach'}`}>Home</a></li>
+      {NAV.map((n) => (
+        <li><a href={u(n.href)} aria-current={current === n.key ? 'page' : undefined} class={`flex min-h-[58px] items-center border-b border-ink-3 font-display text-[1.9rem] font-bold no-underline ${current === n.key ? 'text-gold-hi' : 'text-peach'}`}>{n.label}</a></li>
+      ))}
+    </ul>
+    <div class="mt-6 grid gap-3">
+      <a href={`tel:${site.tel}`} class="btn btn-gold"><Icon name="phone" size={18} />Call {site.phone}</a>
+      <a href={site.directions} target="_blank" rel="noopener" class="btn btn-line"><Icon name="nav" size={18} />Directions<span class="sr-only"> (opens in new tab)</span></a>
+    </div>
+  </nav>
+</div>

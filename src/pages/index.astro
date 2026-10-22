@@ -1,0 +1,163 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import Icon from '../components/Icon.astro';
+import Ornament from '../components/Ornament.astro';
+import HoursTable from '../components/HoursTable.astro';
+import OpenBadge from '../components/OpenBadge.astro';
+import MapEmbed from '../components/MapEmbed.astro';
+import { site, products, retailers, events, u, shortDesc } from '../lib/site';
+const outlets = retailers.length;
+const draft = retailers.filter((r) => r.type === 'draft').length;
+const shanty = events.recurring[0];
+---
+<Base title="Mershon's Cider | Handcrafted Hard Apple Cider & Tasting Room in Stoughton, WI" current="home" path="/"
+  description="Handcrafted hard apple cider from Stoughton, WI, made with fresh-pressed apples and wildflower honey. Visit our Main Street tasting room, order bottles shipped to your door, or find Mershon's near you.">
+
+  <!-- Hero -->
+  <section class="grain relative isolate overflow-hidden">
+    <div class="absolute inset-0 -z-10 lg:left-[36%]">
+      <Img src="photos/bottles-shelf.jpg" alt="Mershon's Snowed In Cinnamon bottles lined up on a wooden shelf in the tasting room" eager sizes="(min-width:1024px) 58vw, 100vw" class="h-full w-full object-cover object-[62%_50%]" pictureClass="block h-full w-full" />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink from-25% via-ink/75 to-ink/30 lg:bg-gradient-to-r lg:from-ink lg:via-ink/35 lg:via-30% lg:to-transparent"></div>
+    </div>
+    <div class="container-x grid min-h-[calc(100svh-108px)] max-h-[880px] items-end pb-14 pt-40 lg:min-h-[660px] lg:items-center lg:py-24">
+      <div class="max-w-[38rem]">
+        <p class="eyebrow mb-5 flex items-center gap-3"><span class="h-px w-8 bg-honey"></span>Cidery &amp; tasting room<span class="hidden sm:inline"> · Stoughton, WI</span></p>
+        <h1 class="text-[3.1rem] leading-[.98] sm:text-7xl lg:text-[5.4rem]">Apples, honey <span class="block text-amber">&amp; nothing else.</span></h1>
+        <p class="mt-6 max-w-xl text-lg text-parchment/90 md:text-xl">{site.intro}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={u('/tasting-room/')} class="btn btn-gold">Visit the tasting room <Icon name="arrow" size={17} /></a>
+          <a href={u('/order-cider/')} class="btn btn-line">Order cider</a>
+        </div>
+        <p class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-parchment/85">
+          <OpenBadge class="font-slab font-semibold text-peach" />
+          <span class="flex items-center gap-2"><Icon name="pin" size={16} class="text-honey" />{site.street}, {site.city}</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three ways in -->
+  <section class="border-y border-ink-3 bg-ink-2">
+    <div class="container-x grid divide-y divide-ink-3 md:grid-cols-3 md:divide-x md:divide-y-0">
+      {[
+        { icon: 'glass', title: 'Tasting Room & Bar', body: 'Draft cider, tasting flights, house cocktails & beer on Main Street.', href: '/tasting-room/', cta: 'Hours & visit' },
+        { icon: 'truck', title: 'Shipped to your door', body: `Order bottles online and ship to ${site.shipStates.length - 1} states plus DC, or pick up on site.`, href: '/order-cider/', cta: 'Order cider' },
+        { icon: 'store', title: 'Find it near you', body: `On shelves and on tap at ${outlets} spots across Wisconsin.`, href: '/where-to-find/', cta: 'Where to find' },
+      ].map((c) => (
+        <a href={u(c.href)} class="group flex gap-4 py-8 text-parchment no-underline md:px-8 md:first:pl-0 md:last:pr-0">
+          <span class="mt-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-honey/50 text-gold-hi"><Icon name={c.icon} size={20} /></span>
+          <span>
+            <span class="block font-display text-2xl text-peach group-hover:text-gold-hi">{c.title}</span>
+            <span class="mt-1 block text-muted">{c.body}</span>
+            <span class="mt-3 inline-flex items-center gap-2 font-slab text-xs font-semibold uppercase tracking-[.16em] text-gold-hi">{c.cta}<Icon name="arrow" size={14} class="transition-transform group-hover:translate-x-1" /></span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- The lineup -->
+  <section class="py-20 md:py-28" aria-labelledby="lineup">
+    <div class="container-x">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <Ornament class="mb-6 max-w-[220px] !justify-start before:hidden" />
+          <p class="eyebrow mb-3">The lineup</p>
+          <h2 id="lineup" class="text-5xl md:text-6xl">Five ciders, every one made with honey</h2>
+        </div>
+        <a href={u('/order-cider/')} class="btn btn-line self-start md:self-auto">Shop all ciders</a>
+      </div>
+      <ul class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        {products.map((p) => (
+          <li class="card group flex flex-col overflow-hidden">
+            <div class="overflow-hidden bg-[#f4efe7]">
+              <Img src={`labels/${p.slug}.jpg`} alt={`${p.fullName} bottle label`} sizes="(min-width:1024px) 20vw, (min-width:640px) 50vw, 100vw" widths={[360, 560, 750]} class="aspect-[5/4] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+            </div>
+            <div class="flex flex-1 flex-col p-5">
+              <p class="font-slab text-xs font-semibold uppercase tracking-[.16em] text-honey">{p.abv}% ABV · 750 mL</p>
+              <h3 class="mt-2 text-[1.75rem]">{p.name}</h3>
+              <p class="mt-2 flex-1 text-[.95rem] leading-relaxed text-muted">{shortDesc(p.desc).replace(/^Mershon's /, '')}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Story teaser -->
+  <section class="relative overflow-hidden border-y border-ink-3 bg-ink-2 py-20 md:py-28" aria-labelledby="story">
+    <div class="container-x grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <div class="photo-frame order-2 lg:order-1">
+        <Img src="photos/barrels-row.jpg" alt="Oak barrels stacked in the Mershon's cidery" sizes="(min-width:1024px) 45vw, 100vw" class="aspect-[4/3] w-full rounded-[3px] object-cover" />
+      </div>
+      <div class="order-1 lg:order-2">
+        <p class="eyebrow mb-3">Our story</p>
+        <h2 id="story" class="text-5xl md:text-6xl">A new take on a traditional drink</h2>
+        <p class="mt-6 text-lg">Our founder Joseph Baird was shocked at the lack of hard ciders available locally, so he set off to make his own, experimenting at home for years on a recipe of fresh-pressed apple juice and wildflower honey.</p>
+        <blockquote class="mt-8 border-l-2 border-amber pl-5 font-display text-2xl leading-snug text-peach">“Traditionally hard apple cider is made from fresh pressed apple juice and natural sugar…”<footer class="mt-2 font-slab text-sm not-italic tracking-wide text-muted">— Joseph Baird, founder</footer></blockquote>
+        <a href={u('/our-story/')} class="btn btn-line mt-9">Read our story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Taproom band -->
+  <section class="grain relative isolate overflow-hidden" aria-labelledby="taproom">
+    <div class="absolute inset-0 -z-10">
+      <Img src="photos/crowd-night.jpg" alt="A packed evening crowd in the Mershon's taproom under colored lights" sizes="100vw" class="h-full w-full object-cover" pictureClass="block h-full w-full" />
+      <div class="absolute inset-0 bg-ink/45"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/50 to-transparent"></div>
+    </div>
+    <div class="container-x py-24 md:py-36">
+      <p class="eyebrow mb-3">On Main Street</p>
+      <h2 id="taproom" class="max-w-2xl text-5xl md:text-7xl">Pull up a stool, or bring the whole crew.</h2>
+      <ul class="mt-8 flex max-w-2xl flex-wrap gap-2">
+        {site.taproomOffer.map((t) => <li class="rounded-full border border-gold/50 bg-ink/50 px-4 py-1.5 font-slab text-sm font-semibold text-peach">{t}</li>)}
+      </ul>
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href={u('/tasting-room/')} class="btn btn-gold">Plan your visit</a>
+        <a href={u('/private-events/')} class="btn btn-line">Book a private event</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events -->
+  <section class="py-20 md:py-28" aria-labelledby="ev">
+    <div class="container-x grid items-center gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+      <div>
+        <p class="eyebrow mb-3">Events</p>
+        <h2 id="ev" class="text-5xl md:text-6xl">Sing it out, every fourth Sunday</h2>
+        <p class="mt-6 text-lg text-parchment/90">{shanty.desc}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={u('/events/')} class="btn btn-line">See events</a>
+          <a href={site.facebook} target="_blank" rel="noopener" class="btn btn-line"><Icon name="facebook" size={16} />Latest on Facebook<span class="sr-only"> (opens in new tab)</span></a>
+        </div>
+      </div>
+      <div class="card grid overflow-hidden sm:grid-cols-[200px_1fr]">
+        <Img src={shanty.image} alt="Stoughton Sea Shanty Society emblem: a Viking ship in a circle" widths={[300, 480]} sizes="(min-width:640px) 200px, 100vw" class="aspect-square h-full w-full bg-white object-contain p-4" />
+        <div class="p-6 sm:p-8">
+          <p class="font-slab text-xs font-semibold uppercase tracking-[.16em] text-honey">{shanty.when}</p>
+          <h3 class="mt-2 text-3xl">{shanty.title}</h3>
+          <p class="mt-3 flex items-center gap-2 text-muted"><Icon name="pin" size={16} class="text-honey" />{site.name}, {site.street}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visit -->
+  <section class="border-t border-ink-3 bg-ink-2 py-20 md:py-24" aria-labelledby="visit">
+    <div class="container-x grid gap-12 lg:grid-cols-[1fr_1fr_1.1fr]">
+      <div>
+        <p class="eyebrow mb-3">Visit</p>
+        <h2 id="visit" class="text-5xl">Come taste and see</h2>
+        <address class="mt-6 not-italic text-lg leading-relaxed">{site.name}<br />{site.street}<br />{site.city}, {site.state} {site.zip}</address>
+        <p class="mt-4 grid gap-1 text-lg"><a href={`tel:${site.tel}`}>{site.phone}</a><a href={`mailto:${site.email}`} class="break-all">{site.email}</a></p>
+      </div>
+      <div>
+        <h3 class="mb-4 font-slab text-sm font-semibold uppercase tracking-[.18em] text-honey">Tasting room hours</h3>
+        <HoursTable />
+      </div>
+      <MapEmbed />
+    </div>
+  </section>
+</Base>
